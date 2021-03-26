@@ -1,0 +1,49 @@
+
+{% extends "buldi.html.twig" %}
+
+{% block body %}
+<!DOCTYPE html>
+    <h1>Devis en cours</h1>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Numero du devis </th>
+                <th>Type de maison </th>
+                <th>Usage </th>
+                <th>Surface en m2</th>
+                <th>Budget</th>
+                <th>Nombre d'étages</th>
+                <th>Nombre de chambres</th>
+                <th>Garage</th>
+                <th>Amenagment d'exterieur</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for devi in devis %}
+            <tr>
+                <td>{{ devi.id }}</td>
+                <td>{{ devi.typeMaison }}</td>
+                <td>{{ devi.typeUsage }}</td>
+                <td>{{ devi.surface }}</td>
+                <td>{{ devi.budget }}</td>
+                <td>{{ devi.etages }}</td>
+                <td>{{ devi.chambres }}</td>
+                <td>{{ devi.garage ? 'Oui' : 'Non' }}</td>
+                <td>{{ devi.exterieur ? 'Oui' : 'Non' }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('devis_show', {'id': devi.id}) }}">Afficher</a>
+                    <a class="btn btn-warning" href="{{ path('devis_edit', {'id': devi.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">Aucuns devis</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-success" href="{{ path('devis_new') }}">Nouveau devis</a>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "buldi.html.twig" %}
+
+
+{% block body %}
+
+    <h1>Devis</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Numero du devis</th>
+                <td>{{ devi.id }}</td>
+            </tr>
+            <tr>
+                <th>Type de maison</th>
+                <td>{{ devi.typeMaison }}</td>
+            </tr>
+            <tr>
+                <th>Usage</th>
+                <td>{{ devi.typeUsage }}</td>
+            </tr>
+            <tr>
+                <th>Surface en m2</th>
+                <td>{{ devi.surface }}</td>
+            </tr>
+            <tr>
+                <th>Budget</th>
+                <td>{{ devi.budget }}</td>
+            </tr>
+            <tr>
+                <th>Nombre d'étages</th>
+                <td>{{ devi.etages }}</td>
+            </tr>
+            <tr>
+                <th>Nombre de chambres</th>
+                <td>{{ devi.chambres }}</td>
+            </tr>
+            <tr>
+                <th>Garage</th>
+                <td>{{ devi.garage ? 'Oui' : 'Non' }}</td>
+            </tr>
+            <tr>
+                <th>Amenagment d'exterieur</th>
+                <td>{{ devi.exterieur ? 'Oui' : 'Non' }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="action">
+        <a class="btn btn-primary" href="{{ path('devis_index') }}">Retour aux devis</a>
+        <a class="btn btn-warning" href="{{ path('devis_edit', {'id': devi.id}) }}">Modifier</a>
+        <a id="print" class="btn btn-md btn-dark" href="javascript:window.print()">Imprimer</a>		
+        {{ include('devis/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

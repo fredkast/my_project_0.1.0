@@ -1,0 +1,43 @@
+{% extends "buldi.html.twig" %}
+
+{% block body %}
+<!DOCTYPE html>
+
+<title>Client</title>
+    <h1>Client</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Numero client</th>
+                <td>{{ client.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ client.nomCLient }}</td>
+            </tr>
+            <tr>
+                <th>Prénom</th>
+                <td>{{ client.prenomClient }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ client.adresseClient }}</td>
+            </tr>
+            <tr>
+                <th>Mail</th>
+                <td>{{ client.mailClient }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ client.telephoneClient }}</td>
+            </tr>
+        </tbody>
+    </table>
+   <div class="action">
+        <a class="btn btn-primary" href="{{ path('client_index') }}">Retour aux clients</a>
+        <a class="btn btn-warning" href="{{ path('client_edit', {'id': client.id}) }}">Modifier</a>
+        <a id="print" class="btn btn-md btn-dark" href="javascript:window.print()">Imprimer</a>		
+        {{ include('client/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

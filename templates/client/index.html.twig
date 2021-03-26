@@ -1,0 +1,44 @@
+{% extends "buldi.html.twig" %}
+
+{% block body %}
+<!DOCTYPE html>
+
+<title>Liste de clients</title>
+    <h1>Liste des clients</h1>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Numero client</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Adresse</th>
+                <th>Mail</th>
+                <th>Telephone</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for client in clients %}
+            <tr>
+                <td>{{ client.id }}</td>
+                <td>{{ client.nomCLient }}</td>
+                <td>{{ client.prenomClient }}</td>
+                <td>{{ client.adresseClient }}</td>
+                <td>{{ client.mailClient }}</td>
+                <td>{{ client.telephoneClient }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('client_show', {'id': client.id}) }}">Afficher</a>
+                    <a class="btn btn-warning" href="{{ path('client_edit', {'id': client.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Aucuns clients</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-success" href="{{ path('client_new') }}">Ajouter un client</a>
+{% endblock %}

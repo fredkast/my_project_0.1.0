@@ -1,0 +1,15 @@
+{% extends "buldi.html.twig" %}
+
+
+
+
+{% block body %}
+<!DOCTYPE html>
+
+<title>New Devis</title>
+    <h1>Decrivez nous la maison de vos rêves!</h1>
+
+    {{ include('devis/_form.html.twig') }}
+
+    <a class="btn btn-primary" href="{{ path('accueil') }}">Retour à l'accueil</a>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "buldi.html.twig" %}
+
+{% block body %}
+<!DOCTYPE html>
+
+<title>New Client</title>
+    <h1>Create new Client</h1>
+
+    {{ include('client/_form.html.twig') }}
+
+    <a class="btn btn-primary" href="{{ path('accueil') }}">Retour à l'accueil</a>
+{% endblock %}

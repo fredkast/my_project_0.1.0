@@ -1,0 +1,12 @@
+{% extends "buldi.html.twig" %}
+
+{% block body %}
+<!DOCTYPE html>
+
+<title>New User</title>
+    <h1>Ajouter un un utilisateurs</h1>
+
+    {{ include('user/_form.html.twig') }}
+
+    <a href="{{ path('user_index') }}">Retour aux utilisateurs</a>
+{% endblock %}

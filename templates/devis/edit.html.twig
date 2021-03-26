@@ -1,0 +1,14 @@
+{% extends "buldi.html.twig" %}
+
+{% block title %}<title>Edit Devis</title>{% endblock %}
+
+{% block body %}
+<!DOCTYPE html>
+    <h1>Modifier ce devis</h1>
+
+    {{ include('devis/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a class="btn btn-primary" href="{{ path('devis_index') }}">Retour au devis</a>
+
+    {{ include('devis/_delete_form.html.twig') }}
+{% endblock %}
