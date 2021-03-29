@@ -16,7 +16,7 @@
     </head>
     <body>
         <header>
-            <a href="/" ><h1>Buldi 2 (register et auth)</h1></a>
+            <a href="/" ><h1>Mon projet Immo</h1></a>
             <div class="navigation">
                 <div class="menu">
                     <ul>
@@ -30,7 +30,7 @@
                         {% endif %}
                         
                         {% if is_granted('ROLE_CLIENT') %}
-                            <li><a href="/client" class="bouton">Clients</a></li>
+                            <li><a href="/client" class="bouton">Utilisateur</a></li>
                         {% endif %}
                         
                         {% if is_granted('ROLE_ADMIN') %}
@@ -38,7 +38,7 @@
                         {% endif %}
                         
                         {% if is_granted('ROLE_ADMIN') %}
-                            <li><a href="/admin" class="bouton">Admin</a></li>
+                            <li><a href="/admin" class="bouton">Admin***</a></li>
                         {% endif %}
                         <li></li>
                     </ul>
