@@ -34,7 +34,9 @@
                 <td>{{ devi.exterieur ? 'Oui' : 'Non' }}</td>
                 <td>
                     <a class="btn btn-primary" href="{{ path('devis_show', {'id': devi.id}) }}">Afficher</a>
-                    <a class="btn btn-warning" href="{{ path('devis_edit', {'id': devi.id}) }}">Modifier</a>
+                    {% if is_granted('ROLE_CLIENT') %}
+                        <a class="btn btn-warning" href="{{ path('devis_edit', {'id': devi.id}) }}">Modifier</a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}
