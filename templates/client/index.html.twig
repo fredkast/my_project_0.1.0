@@ -29,7 +29,10 @@
                 <td>{{ client.telephoneClient }}</td>
                 <td>
                     <a class="btn btn-primary" href="{{ path('client_show', {'id': client.id}) }}">Afficher</a>
-                    <a class="btn btn-warning" href="{{ path('client_edit', {'id': client.id}) }}">Modifier</a>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a class="btn btn-warning" href="{{ path('client_edit', {'id': client.id}) }}">Modifier</a>
+                    {% endif %}
+                    
                 </td>
             </tr>
         {% else %}
@@ -39,6 +42,8 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a class="btn btn-success" href="{{ path('client_new') }}">Ajouter un client</a>
+    {% if is_granted('ROLE_ADMIN') %}
+        <a class="btn btn-success" href="{{ path('client_new') }}">Ajouter un client</a>
+    {% endif %}
+    
 {% endblock %}

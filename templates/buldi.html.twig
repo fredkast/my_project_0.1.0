@@ -21,7 +21,11 @@
                 <div class="menu">
                     <ul>
                         <li><a href="/" class="bouton">Accueil</a></li>
-                        {% if is_granted('ROLE_USER') %}
+                        
+                        {% if is_granted('ROLE_ADMIN') %}
+                        <li><a href="#" class="bouton">Mes devis</a></li>
+                        {% endif %}
+                        {% if is_granted('ROLE_ADMIN') %}
                             <li><a href="/devis" class="bouton">Devis</a></li>
                         {% endif %}
                         
@@ -33,6 +37,9 @@
                             <li><a href="/user" class="bouton">Gestion des utilisateurs</a></li>
                         {% endif %}
                         
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <li><a href="/admin" class="bouton">Admin</a></li>
+                        {% endif %}
                         <li></li>
                     </ul>
                 </div>    
