@@ -9,6 +9,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
 
 /**
  * @Route("/devis")
@@ -16,6 +18,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class DevisController extends AbstractController
 {
     /**
+     * * @IsGranted("ROLE_USER")
      * @Route("/", name="devis_index", methods={"GET"})
      */
     public function index(DevisRepository $devisRepository): Response
@@ -49,7 +52,9 @@ class DevisController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_USER")
      * @Route("/{id}", name="devis_show", methods={"GET"})
+     
      */
     public function show(Devis $devi): Response
     {
@@ -59,6 +64,7 @@ class DevisController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_USER")
      * @Route("/{id}/edit", name="devis_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Devis $devi): Response
@@ -79,6 +85,7 @@ class DevisController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_USER")
      * @Route("/{id}", name="devis_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Devis $devi): Response

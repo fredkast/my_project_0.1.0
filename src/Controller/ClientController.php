@@ -9,12 +9,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 /**
  * @Route("/client")
+ * @IsGranted("ROLE_ADMIN")
  */
 class ClientController extends AbstractController
 {
+    
     /**
      * @Route("/", name="client_index", methods={"GET"})
      */
