@@ -8,6 +8,7 @@
     <table class="table table-hover">
         <thead>
             <tr>
+                <th>Auteur </th>
                 <th>Numero du devis </th>
                 <th>Type de maison </th>
                 <th>Usage </th>
@@ -23,6 +24,7 @@
         <tbody>
         {% for devi in devis %}
             <tr>
+                <td>{{ user.nom }}</td>
                 <td>{{ devi.id }}</td>
                 <td>{{ devi.typeMaison }}</td>
                 <td>{{ devi.typeUsage }}</td>

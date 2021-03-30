@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+
 class DevisType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -78,7 +79,7 @@ class DevisType extends AbstractType
                     'Non' => false,
                 ],
             ])
-            ->add('user', EntityType::class, [
+            ->add('User', EntityType::class, [
                 'class'=> User::class,
                 'label'=>"Qui est l'auteur du devis?",
                 "attr" => [
