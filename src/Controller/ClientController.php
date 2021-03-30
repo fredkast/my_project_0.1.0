@@ -13,12 +13,12 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 
 /**
- * @IsGranted("ROLE_CLIENT")
  * @Route("/client")
  */
 class ClientController extends AbstractController
 {
     /**
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/", name="client_index", methods={"GET"})
      */
     public function index(ClientRepository $clientRepository): Response
@@ -29,6 +29,7 @@ class ClientController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_USER")
      * @Route("/new", name="client_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
@@ -42,7 +43,7 @@ class ClientController extends AbstractController
             $entityManager->persist($client);
             $entityManager->flush();
 
-            return $this->redirectToRoute('client_index');
+            return $this->redirectToRoute('devis_new');
         }
 
         return $this->render('client/new.html.twig', [
@@ -52,6 +53,7 @@ class ClientController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_CLIENT")
      * @Route("/{id}", name="client_show", methods={"GET"})
      */
     public function show(Client $client): Response
@@ -62,6 +64,7 @@ class ClientController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/{id}/edit", name="client_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Client $client): Response
@@ -82,6 +85,7 @@ class ClientController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/{id}", name="client_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Client $client): Response
