@@ -9,6 +9,7 @@
         <thead>
             <tr>
                 <th>Numero du devis </th>
+                <th>Numero Client</th>
                 <th>Type de maison </th>
                 <th>Usage </th>
                 <th>Surface en m2</th>
@@ -24,6 +25,7 @@
         {% for devi in devis %}
             <tr>
                 <td>{{ devi.id }}</td>
+                {# <td>{{client.id}}</td> #}
                 <td>{{ devi.typeMaison }}</td>
                 <td>{{ devi.typeUsage }}</td>
                 <td>{{ devi.surface }}</td>
