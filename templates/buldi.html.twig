@@ -42,9 +42,9 @@
                 <ul>
                      {% if app.user %}
 
-                        <p>Bonjour <a href="/client/"{{app.user.id}}> {{ app.user.username }}</a></p>
+                        <p>Bonjour <a href="/user/"{{app.user.id}}> {{ app.user.username }}</a></p>
                         
-						<li><a href="/client/"{{app.user.id}} class="bouton">Mon profil</a></li>
+						{# <li><a href="/client/"{{app.user.id}} class="bouton">Mon profil</a></li> #}
                         <li><a href="/logout">Se déconnecter</a></li>
 					{% else %}
 						<li><a href="/login">Se connecter</a></li>

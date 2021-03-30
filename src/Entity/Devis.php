@@ -57,6 +57,12 @@ class Devis
      */
     private $exterieur;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="devis")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -154,6 +160,18 @@ class Devis
     public function setExterieur(bool $exterieur): self
     {
         $this->exterieur = $exterieur;
+
+        return $this;
+    }
+
+    public function getUser(): ?user
+    {
+        return $this->user;
+    }
+
+    public function setUser(?user $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

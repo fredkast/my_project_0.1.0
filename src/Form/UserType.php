@@ -25,7 +25,7 @@ class UserType extends AbstractType
                 'label' => 'Rôles' 
             ])
             ->add('password')
-            ->add('userName')
+            // ->add('userName')
         ;
     }
 

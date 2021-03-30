@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -61,6 +63,16 @@ class User implements UserInterface
      */
     private $telephone;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Devis::class, mappedBy="user", orphanRemoval=true)
+     */
+    private $devis;
+
+    public function __construct()
+    {
+        $this->devis = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -85,7 +97,7 @@ class User implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->email;
+        return (string) $this->userName;
     }
 
     /**
@@ -193,6 +205,36 @@ class User implements UserInterface
     public function setTelephone(string $telephone): self
     {
         $this->telephone = $telephone;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Devis[]
+     */
+    public function getDevis(): Collection
+    {
+        return $this->devis;
+    }
+
+    public function addDevi(Devis $devi): self
+    {
+        if (!$this->devis->contains($devi)) {
+            $this->devis[] = $devi;
+            $devi->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDevi(Devis $devi): self
+    {
+        if ($this->devis->removeElement($devi)) {
+            // set the owning side to null (unless already changed)
+            if ($devi->getUser() === $this) {
+                $devi->setUser(null);
+            }
+        }
 
         return $this;
     }

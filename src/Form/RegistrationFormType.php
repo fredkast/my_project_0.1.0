@@ -28,20 +28,20 @@ class RegistrationFormType extends AbstractType
                 'required' => true,
                 'attr' => ['class' =>'form-control'],
             ])
-            ->add('username', TextType::class, [
-                'label'=>"Nom d'utilisateur",
-                'constraints'=>[
-                    new Length([
-                        'min'=>4,
-                        'minMessage'=>"Votre nom d'utilisateur doit avoir plus de 4 caractères"
-                    ]),
-                    ],
-            ])
+            // ->add('username', TextType::class, [
+            //     'label'=>"Nom d'utilisateur",
+            //     'constraints'=>[
+            //         new Length([
+            //             'min'=>4,
+            //             'minMessage'=>"Votre nom d'utilisateur doit avoir plus de 4 caractères"
+            //         ]),
+            //         ],
+            // ])
             ->add('nom', TextType::class, [
                 'label'=>"Nom",
                 'constraints'=>[
                     new Length([
-                        'min'=>4,
+                        'min'=>1,
                         'minMessage'=>"Votre nom d'utilisateur doit avoir plus de 4 caractères"
                     ]),
                     ],
@@ -50,7 +50,7 @@ class RegistrationFormType extends AbstractType
                 'label'=>"Prénom",
                 'constraints'=>[
                     new Length([
-                        'min'=>4,
+                        'min'=>1,
                         'minMessage'=>"Votre nom d'utilisateur doit avoir plus de 4 caractères"
                     ]),
                     ],
@@ -68,8 +68,8 @@ class RegistrationFormType extends AbstractType
                 'label'=>"Votre telephone",
                 'constraints'=>[
                     new Length([
-                        'min'=>4,
-                        'minMessage'=>"Votre nom d'utilisateur doit avoir plus de 4 caractères"
+                        'min'=>1,
+                        'minMessage'=>"Votre nom d'utilisateur doit avoir plus de 10 caractères"
                     ]),
                     ],
             ])                                                 
@@ -82,7 +82,7 @@ class RegistrationFormType extends AbstractType
                         'message' => 'Tapez un mot de passe',
                     ]),
                     new Length([
-                        'min' => 6,
+                        'min' => 1,
                         'minMessage' => 'Votre mot de passe doit contenir {{ limit }} caracteres minimum',
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
