@@ -29,10 +29,6 @@
                             <li><a href="/devis" class="bouton">Devis</a></li>
                         {% endif %}
                         
-                        {% if is_granted('ROLE_CLIENT') %}
-                            <li><a href="/client" class="bouton">Utilisateur</a></li>
-                        {% endif %}
-                        
                         {% if is_granted('ROLE_ADMIN') %}
                             <li><a href="/user" class="bouton">Gestion des utilisateurs</a></li>
                         {% endif %}

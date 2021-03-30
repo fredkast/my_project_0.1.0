@@ -36,7 +36,43 @@ class RegistrationFormType extends AbstractType
                         'minMessage'=>"Votre nom d'utilisateur doit avoir plus de 4 caractères"
                     ]),
                     ],
-            ])          
+            ])
+            ->add('nom', TextType::class, [
+                'label'=>"Nom",
+                'constraints'=>[
+                    new Length([
+                        'min'=>4,
+                        'minMessage'=>"Votre nom d'utilisateur doit avoir plus de 4 caractères"
+                    ]),
+                    ],
+            ])
+            ->add('prenom', TextType::class, [
+                'label'=>"Prénom",
+                'constraints'=>[
+                    new Length([
+                        'min'=>4,
+                        'minMessage'=>"Votre nom d'utilisateur doit avoir plus de 4 caractères"
+                    ]),
+                    ],
+            ])
+            ->add('adresse', TextType::class, [
+                'label'=>"Votre adresse",
+                'constraints'=>[
+                    new Length([
+                        'min'=>4,
+                        'minMessage'=>"Votre nom d'utilisateur doit avoir plus de 4 caractères"
+                    ]),
+                    ],
+            ]) 
+            ->add('telephone', TextType::class, [
+                'label'=>"Votre telephone",
+                'constraints'=>[
+                    new Length([
+                        'min'=>4,
+                        'minMessage'=>"Votre nom d'utilisateur doit avoir plus de 4 caractères"
+                    ]),
+                    ],
+            ])                                                 
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller

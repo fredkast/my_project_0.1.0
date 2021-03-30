@@ -9,7 +9,7 @@
         <h2>Parce que votre besoin est unique, notre configurateur vous permet de définir votre maison idéale et nous nous occupons de trouver des artisans pour votre projet !</h2>
        
         {% if is_granted('ROLE_USER')%}
-            <a href="/client/new"><button class="btn btn-success">Réaliser un devis en ligne</button></a>
+            <a href="/devis/new"><button class="btn btn-success">Réaliser un devis en ligne</button></a>
             {% else %}
             <a href="/register"><button class="btn btn-warning">Créer un compte</button></a>
         {% endif %}
