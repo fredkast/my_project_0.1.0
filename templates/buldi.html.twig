@@ -22,8 +22,8 @@
                     <ul>
                         <li><a href="/" class="bouton">Accueil</a></li>
                         
-                        {% if is_granted('ROLE_ADMIN') %}
-                        <li><a href="#" class="bouton">Mes devis***</a></li>
+                        {% if is_granted('ROLE_USER') %}
+                        <li><a href="" class="bouton">Mes devis***</a></li>
                         {% endif %}
                         {% if is_granted('ROLE_ADMIN') %}
                             <li><a href="/devis" class="bouton">Devis</a></li>
@@ -42,7 +42,7 @@
                 <ul>
                      {% if app.user %}
 
-                        <p>Bonjour <a href="/user/"{{app.user.id}}> {{ app.user.username }}</a></p>
+                        <p>Bonjour <a href="/user/{{app.user.id}}"> {{ app.user.prenom }}</a></p>
                         
 						{# <li><a href="/client/"{{app.user.id}} class="bouton">Mon profil</a></li> #}
                         <li><a href="/logout">Se déconnecter</a></li>
