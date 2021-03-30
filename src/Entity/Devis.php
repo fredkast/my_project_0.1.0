@@ -58,7 +58,7 @@ class Devis
     private $exterieur;
 
     /**
-     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="devis")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="devis")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;

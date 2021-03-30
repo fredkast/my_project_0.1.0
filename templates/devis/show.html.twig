@@ -7,8 +7,12 @@
 
     <table class="table">
         <tbody>
+        <tr>
+                <th>Auteur du devis</th>
+                <td>{{ app.user.nom}} {{app.user.prenom }}</td>
+            </tr>
             <tr>
-                <th>Numero du devis</th>
+                <th>Référence du devis</th>
                 <td>{{ devi.id }}</td>
             </tr>
             <tr>
