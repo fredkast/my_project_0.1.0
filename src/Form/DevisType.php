@@ -17,29 +17,43 @@ class DevisType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        
         $builder
-        ->add('typeMaison',TextType::class,array(
-            // intitulé
-            'label'=>'Type de maison : ',
-            // css de l'intitulé
-            'label_attr'=>array(
-                'class'=>'lab30 red required',
-            ),
-            //champs
-            'attr'=>array(
-                'class'=>'',
-            )
-        ))
-            ->add('typeUsage',TextType::class,array(
-                'label'=>"Type d'usage :",
-                'label_attr'=>array(
-                    'class'=>'required'
+            ->add('typeMaison',ChoiceType::class,array(
+                // intitulé
+                'label'=>'Type de maison : ',
+                // css de l'intitulé
+                'choices'=>array(
+                    'Moderne'=>"Moderne",
+                    'Traditionnelle'=>"Traditionnelle",
+                    'Maison en bois'=>"Maison en bois",
+                    "D'architecte"=>"Maison d'architecte",
                 ),
+                //champs
+                'attr'=>array(
+                    'class'=>'',
+                )
             ))
+            // ->add('typeUsage',TextType::class,array(
+            //     'label'=>"Type d'usage :",
+            //     'label_attr'=>array(
+            //         'class'=>'required'
+            //     ),
+            // ))
+            ->add('typeUsage',ChoiceType::class,array(
+                    'label'=>"Type d'usage :",
+                    'choices'=>array(
+                        'Principale'=>"Principale",
+                        'Secondaire'=>"Secondaire",
+                        'Extension'=>"Extension",
+                        'Dependance'=>"Dependence",
+                    ),
+                   
+                ))
             ->add('surface',TextType::class,array(
                 'label'=>"Quelle surface habitable souhaitez-vous en m2 ? :",
                 'label_attr'=>array(
-                    'class'=>'required'
+                    // 'class'=>'required'
                 ),
                 'attr'=>array(
                     'class'=>'',
@@ -48,7 +62,7 @@ class DevisType extends AbstractType
             ->add('budget',TextType::class,array(
                 'label'=>"Quel est votre budget ? ",
                 'label_attr'=>array(
-                    'class'=>'required'
+                    // 'class'=>'required'
                 ),
                 'attr'=>array(
                     'class'=>'',
@@ -57,13 +71,13 @@ class DevisType extends AbstractType
             ->add('etages',IntegerType::class,array(
                 'label'=>"Combien d'étages souhaitez-vous ?",
                 'label_attr'=>array(
-                    'class'=>'required'
+                    // 'class'=>'required'
                 ),
             ))
             ->add('chambres',IntegerType::class,array(
                 'label'=>"Combien de chambres souhaitez-vous ?",
                 'label_attr'=>array(
-                    'class'=>'required'
+                    // 'class'=>'required'
                 ),
             ))
             ->add('garage', ChoiceType::class, [
@@ -79,15 +93,18 @@ class DevisType extends AbstractType
                     'Non' => false,
                 ],
             ])
+            // ->add('User', EntityType::class, [
+            //     'class'=> User::class,
+            //     'label'=>"Qui est l'auteur du devis?",
+            //     "choice_label" => "nom",
+            // ])
             ->add('User', EntityType::class, [
-                'class'=> User::class,
-                'label'=>"Qui est l'auteur du devis?",
-                "attr" => [
-                    "class" => "form-control w100",
-                ],
-                "required" => false,
-                "choice_label" => "nom",
-            ])
+                    
+                    'class'=> User::class,
+                    'label'=>"Qui est l'auteur du devis?",
+                    "choice_label" => "nom",
+                    
+                ])
         ;
     }
 
