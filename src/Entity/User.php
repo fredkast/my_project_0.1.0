@@ -238,4 +238,13 @@ class User implements UserInterface
 
         return $this;
     }
+    /**
+     * Convertion de Array en String pour afficher dasn index devis !!!
+     * 
+     */
+    public function __toString(){
+       
+        return $this->nom;
+        
+    }
 }

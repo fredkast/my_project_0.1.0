@@ -20,36 +20,31 @@
             <div class="navigation">
                 <div class="menu">
                     <ul>
-                        <li><a href="/" class="bouton">Accueil</a></li>
-                        
-                        {% if is_granted('ROLE_USER') %}
-                        <li><a href="" class="bouton">Mes devis***</a></li>
-                        {% endif %}
+                        <li><a href="/" class="bouton">Accueil</a></li>                   
+                        <li><a href="/comment_ca_marche" class="bouton">Comment ça marche?</a></li>
+                        <li><a href="/pourquoi" class="bouton">Pourquoi utiliser Mon pojet Immo</a></li>
                         {% if is_granted('ROLE_ADMIN') %}
-                            <li><a href="/devis" class="bouton">Devis</a></li>
+                            <li><a href="/devis" class="bouton">Gestion des devis</a></li>
                         {% endif %}
                         
                         {% if is_granted('ROLE_ADMIN') %}
                             <li><a href="/user" class="bouton">Gestion des utilisateurs</a></li>
                         {% endif %}
-                        
-                        {% if is_granted('ROLE_ADMIN') %}
-                            <li><a href="/admin" class="bouton">Admin***</a></li>
-                        {% endif %}
-                        <li></li>
                     </ul>
                 </div>    
                 <ul>
                      {% if app.user %}
-
-                        <p>Bonjour <a href="/user/{{app.user.id}}"> {{ app.user.prenom }}</a></p>
-                        
-						{# <li><a href="/client/"{{app.user.id}} class="bouton">Mon profil</a></li> #}
+                        <p>Bonjour <b>{{ app.user.prenom }}</b></p>
+                        <li><a href="/user/{{app.user.id}}" class="bouton">Mon profil</a></li>
+                    {% if is_granted('ROLE_USER') %}
+                        <li><a href="" class="bouton">Mes devis***</a></li>
+                    {% endif %}    
                         <li><a href="/logout">Se déconnecter</a></li>
 					{% else %}
 						<li><a href="/login">Se connecter</a></li>
                         <li><a href="/register">Créer un compte</a></li>
 			        {% endif %}
+                    <li><a href="/pro">Espace PRO</a></li>
                     
                     
                 </ul>

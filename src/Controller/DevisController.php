@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Devis;
+use App\Entity\User;
 use App\Form\DevisType;
 use App\Repository\DevisRepository;
+use PhpParser\Node\Stmt\Echo_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,6 +19,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
  */
 class DevisController extends AbstractController
 {
+  
+    
     /**
      * @Route("/", name="devis_index", methods={"GET"})
      */
@@ -24,6 +28,7 @@ class DevisController extends AbstractController
     {
         return $this->render('devis/index.html.twig', [
             'devis' => $devisRepository->findAll(),
+            
         ]);
     }
 
@@ -37,11 +42,17 @@ class DevisController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($devi);
             $entityManager->flush();
-
-            return $this->redirectToRoute('devis_index');
+            //Creer une alert votre devis est pris en compte!
+           
+            //return $this->redirectToRoute('devis_submitted');
+            return $this->render('devis/show.html.twig', [
+                'devi' => $devi,
+            ]);
+            
         }
 
         return $this->render('devis/new.html.twig', [
