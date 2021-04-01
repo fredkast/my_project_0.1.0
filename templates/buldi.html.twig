@@ -52,9 +52,17 @@
         </header>
         <main>
             <div class="container">
+            {# Message Flash #}
+            {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+            {% endfor %}
+
                 {% block body %}{% endblock %}
             </div>
         </main>
+        
         <footer>
             <div class="copyright">
                 <p>Un formulaire de gestion de données immobilières*  "page a faire"</p>

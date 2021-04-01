@@ -35,6 +35,7 @@ class RegistrationController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
+            $this->addFlash('success','Votre profil a bien été enregistré! Veuillez vous reconnecter !');
             // do anything else you need here, like send an email
             return $this->redirectToRoute('accueil');
             return $guardHandler->authenticateUserAndHandleSuccess(

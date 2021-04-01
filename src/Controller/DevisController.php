@@ -50,8 +50,9 @@ class DevisController extends AbstractController
             $entityManager->persist($devi);
             $entityManager->flush();
             //Creer une alert votre devis est pris en compte!
-           
-            //return $this->redirectToRoute('devis_submitted');
+
+            $this->addFlash('success','Votre devis a bien été enregistré!');
+            
             return $this->render('devis/show.html.twig', [
                 'devi' => $devi,
             ]);

@@ -16,9 +16,9 @@
 
     <h1 class="h3 mb-3 font-weight-normal">Connectez-vous ou créez un compte !</h1>
     <label for="inputEmail">Votre adresse mail </label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
+    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" required autofocus>
     <label for="inputPassword">Votre mot de passe</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" required>
+    <input type="password" name="password" id="inputPassword" required>
 
     <input type="hidden" name="_csrf_token"
            value="{{ csrf_token('authenticate') }}"

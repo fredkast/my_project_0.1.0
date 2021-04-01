@@ -7,8 +7,8 @@
 {% elseif is_granted('ROLE_CLIENT') %}
     <h1>Derriere ce devis se cache peut-etre un client potentiel !</h1>
 {% else %}
-    <h1>Votre devis a bien été enregistré</h1>
-    <h2>Vous serez recontacté par nos services!</h2>
+    
+    <h1>Vous serez bientot contacté par des professionnels!</h1>
 {% endif %}
 
     
@@ -65,9 +65,9 @@
         </tbody>
     </table>
     {% if is_granted('ROLE_USER') %}
-        <p>Vous pouvez modifier ou supprimer le devis</p>
-    {% else is_granted('ROLE_CLIENT') %}
-        <p>Ne passez pas a coté de cette orpportunité</p>
+        <h2>Vous pouvez modifier ou supprimer le devis</h2>
+    {% elseif is_granted('ROLE_CLIENT') %}
+        <h2>Ne passez pas a coté de cette orpportunité</h2>
     {% endif %}
      
     <div class="action">
