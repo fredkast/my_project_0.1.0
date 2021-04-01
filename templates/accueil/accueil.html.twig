@@ -6,11 +6,16 @@
         <img src="img/hero.jpg" alt="" width="90%" />
     </div>
     <div class="col-6">
+        {% if is_granted('ROLE_CLIENT')%}
+        <h2>Vous etes professionnels et vous voulez voir les devis des particuliers qui correspondent a vos competences? Nous vous permettons d'acceder a une base de données clients sans demarcher!</h2>
+        {% else %} 
         <h2>Parce que votre besoin est unique, notre configurateur vous permet de définir votre maison idéale et nous nous occupons de trouver des artisans pour votre projet !</h2>
-       
-        {% if is_granted('ROLE_USER')%}
-            <a href="/devis/new"><button class="btn btn-success">Réaliser un devis en ligne</button></a>
-            {% else %}
+        {% endif %}
+        {% if is_granted('ROLE_CLIENT')%}
+            <a href="/pro/"><button class="btn btn-success">Acceder a l'espace PRO</button></a>
+            {% elseif is_granted('ROLE_USER') %}
+            <a href="/devis/new"><button class="btn btn-success">Réaliser un devis</button></a>
+            {% else %} 
             <a href="/register"><button class="btn btn-warning">Créer un compte</button></a>
         {% endif %}
     </div>

@@ -24,7 +24,11 @@
         <tbody>
         {% for devi in devis %}
                 <td>{{ devi.id }}</td>
+                {% if is_granted('ROLE_CLIENT') %}
+                <td> Contactez nous pour voir la fiche client de ce devis ! </td>
+                {% else %}
                 <td>{{ devi.user}}<br>{{ devi.user.prenom}}<br>{{ devi.user.telephone}}<br>{{ devi.user.email}}</td>
+                {% endif %}
                 <td>{{ devi.typeMaison }}</td>
                 <td>{{ devi.typeUsage }}</td>
                 <td>{{ devi.surface }}</td>
@@ -34,10 +38,11 @@
                 <td>{{ devi.garage ? 'Oui' : 'Non' }}</td>
                 <td>{{ devi.exterieur ? 'Oui' : 'Non' }}</td>
                 <td>
-                    <a class="btn btn-primary" href="{{ path('devis_show', {'id': devi.id}) }}">Afficher</a>
+                    <a class="btn btn-primary" href="{{ path('devis_show', {'id': devi.id}) }}">Afficher le devis</a>
+                    <a class="btn btn-success" href="{{ path('devis_show', {'id': devi.id}) }}">Demander la fiche client "ajouter au panier"</a>
                     {% if is_granted('ROLE_ADMIN') %}
-                        <a class="btn btn-warning" href="{{ path('devis_edit', {'id': devi.id}) }}">Modifier</a>
-                        {{ include('devis/_delete_form.html.twig') }}
+                    <a class="btn btn-warning" href="{{ path('devis_edit', {'id': devi.id}) }}">Modifier</a>
+                    {{ include('devis/_delete_form.html.twig') }}
                     {% endif %}
                 </td>
             </tr>

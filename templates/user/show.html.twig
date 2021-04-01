@@ -3,29 +3,62 @@
 <!DOCTYPE html>
 
 <title>User</title>
-    <h1>Utilisateur {{ user.prenom}} {{ user.nom}}</h1>
+    <h1>Bienvenu {{ user.prenom}}</h1>
+    <h2>Ici vous pouvez modifier vos infromations professionnels</h2>
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Numero client</th>
+                <th> Nom</th>
+                <td>{{ user.nom}}</td>
+            </tr>
+            <tr>
+                <th> Prénom</th>
+                <td>{{ user.prenom}}</td>
+            </tr>
+            <tr>
+                <th> Adresse</th>
+                <td>{{ user.adresse}}</td>
+            </tr>
+            <tr>
+                <th> Telephone</th>
+                <td>{{ user.telephone}}</td>
+            </tr>
+            <tr>
+            {% if is_granted('ROLE_ADMIN') %}
+            <tr>
+                <th> Numero du client</th>
                 <td>{{ user.id }}</td>
+            </tr>
+            {% else %}
+            <th>Mon numero client</th>
+                <td>{{ user.id }}</td>
+            {% endif %}
+                
             </tr>
             <tr>
                 <th>Email</th>
                 <td>{{ user.email }}</td>
             </tr>
-            {% if is_granted('ROLE_ADMIN') %}
+            {# {% if is_granted('ROLE_ADMIN') %} #}
             <tr>
-                <th>Roles</th>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                <th>Vous etes un </th>
+                <td class="red">
+                {% if app.user.roles == "ROLE_USER" %}
+                PARTICULIER 
+                {% elseif app.user.roles == "ROLE_ADMIN" %}
+                ADMIN
+                {% elseif app.user.roles == "ROLE_CLIENT" %}
+                CLIENT
+                {% endif %}
+                {# {{ user.roles ? user.roles|json_encode : '' }} #}
+                {# {% endif %} #}
+                </td>
+                
             </tr>
-            {% endif %}
+            {# {% endif %} #}
             
-            <tr>
-                <th>Mot de passe</th>
-                <td>{{ user.password }}</td>
-            </tr>
+            
             
         </tbody>
     </table>

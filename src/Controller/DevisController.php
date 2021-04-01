@@ -22,6 +22,7 @@ class DevisController extends AbstractController
   
     
     /**
+     * @IsGranted("ROLE_CLIENT")
      * @Route("/", name="devis_index", methods={"GET"})
      */
     public function index(DevisRepository $devisRepository): Response
@@ -40,9 +41,11 @@ class DevisController extends AbstractController
         $devi = new Devis();
         $form = $this->createForm(DevisType::class, $devi);
         $form->handleRequest($request);
+        
 
         if ($form->isSubmitted() && $form->isValid()) {
-            
+            // Affiche par default l'utilisateur connecté comme auteur du devis
+            $devi->setUser($this->getUser());
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($devi);
             $entityManager->flush();

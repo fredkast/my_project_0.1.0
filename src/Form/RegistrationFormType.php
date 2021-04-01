@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -26,17 +27,21 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
                 'required' => true,
-                'attr' => ['class' =>'form-control'],
+                // 'attr' => ['class' =>'form-control'],
             ])
-            // ->add('username', TextType::class, [
-            //     'label'=>"Nom d'utilisateur",
-            //     'constraints'=>[
-            //         new Length([
-            //             'min'=>4,
-            //             'minMessage'=>"Votre nom d'utilisateur doit avoir plus de 4 caractères"
-            //         ]),
-            //         ],
-            // ])
+            ->add('roles', ChoiceType::class, [
+                
+                'choices' => [
+                    'PARTICULIER ' => 'ROLE_USER',
+                    'PROFESSIONNEL' => 'ROLE_CLIENT',
+                   
+                ],
+                'label' => 'Vous etes un : ',
+                'expanded' => true,
+                'multiple' => true,
+                
+            
+            ])
             ->add('nom', TextType::class, [
                 'label'=>"Nom",
                 'constraints'=>[

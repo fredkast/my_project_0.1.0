@@ -92,20 +92,23 @@ class DevisType extends AbstractType
                     'Oui' => true,
                     'Non' => false,
                 ],
-            ])
+            ]);
+
+
+            
             // ->add('User', EntityType::class, [
             //     'class'=> User::class,
             //     'label'=>"Qui est l'auteur du devis?",
             //     "choice_label" => "nom",
             // ])
-            ->add('User', EntityType::class, [
+            // ->add('User', EntityType::class, [
                     
-                    'class'=> User::class,
-                    'label'=>"Qui est l'auteur du devis?",
-                    "choice_label" => "nom",
+            //         'class'=> User::class,
+            //         'label'=>"Qui est l'auteur du devis?",
+            //         "choice_label" => "nom",
                     
-                ])
-        ;
+            //     ])
+        
     }
 
     public function configureOptions(OptionsResolver $resolver)

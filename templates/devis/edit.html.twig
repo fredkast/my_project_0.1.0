@@ -6,9 +6,13 @@
 <!DOCTYPE html>
     <h1>Modifier ce devis</h1>
 
-    {{ include('devis/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('devis/_form.html.twig', {'button_label': 'Mettre a jour'}) }}
+    {% if is_granted('ROLE_ADMIN') %}
+        <a class="btn btn-primary" href="{{ path('devis_index') }}">Retour au devis</a>
+    {% else %}
+        <a class="btn btn-primary" href="{{ path('accueil') }}">Retour a l'accueil</a>
+    {% endif %}
 
-    <a class="btn btn-primary" href="{{ path('devis_index') }}">Retour au devis</a>
-
+   
     {{ include('devis/_delete_form.html.twig') }}
 {% endblock %}

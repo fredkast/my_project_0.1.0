@@ -4,9 +4,11 @@
 {% block body %}
 {% if is_granted('ROLE_ADMIN') %}
     <h1>Devis</h1>
-    {% else %}
+{% elseif is_granted('ROLE_CLIENT') %}
+    <h1>Derriere ce devis se cache peut-etre un client potentiel !</h1>
+{% else %}
     <h1>Votre devis a bien été enregistré</h1>
-    <h2>Vous serez recontactez par nos services!</h2>
+    <h2>Vous serez recontacté par nos services!</h2>
 {% endif %}
 
     
@@ -15,8 +17,14 @@
     <table class="table">
         <tbody>
         <tr>
-                <th>Auteur du devis</th>
+            <th>Auteur du devis</th>
+            {% if is_granted('ROLE_ADMIN') %}
                 <td>{{ devi.user}} {{ devi.user.prenom }} / <b>Utilisateur n° :</b> {{ devi.user.id }}</td>
+            {% elseif is_granted('ROLE_CLIENT') %}
+                <td>Concatez nous pour voir la fiche de ce client </td>
+            {% else %}
+                <td>{{ devi.user}} {{ devi.user.prenom }}</td>
+            {% endif %}
             </tr>
             <tr>
                 <th>Référence du devis</th>
@@ -56,16 +64,33 @@
             </tr>
         </tbody>
     </table>
-     <p>Vous pouvez modifier ou le supprimer le devis</p>
+    {% if is_granted('ROLE_USER') %}
+        <p>Vous pouvez modifier ou supprimer le devis</p>
+    {% else is_granted('ROLE_CLIENT') %}
+        <p>Ne passez pas a coté de cette orpportunité</p>
+    {% endif %}
+     
     <div class="action">
         {% if is_granted('ROLE_ADMIN') %}
+
             <a class="btn btn-primary" href="{{ path('devis_index') }}">Retour aux devis</a>
+
+        {% elseif is_granted('ROLE_CLIENT') %}
+        
+            <a class="btn btn-primary" href="{{ path('devis_index') }}">Retour aux devis</a>
+            <a id="print" class="btn btn-md btn-dark" href="javascript:window.print()">Imprimer mon devis</a>	
+            <a class="btn btn-danger" href="#">"Ajouter au panier la fiche complete"</a>
+
+        {% elseif is_granted('ROLE_USER') %}
+        
+            <a class="btn btn-primary" href="{{ path('accueil') }}">Quitter et retourner a l'accueil</a>
+            {{ include('devis/_delete_form.html.twig') }}
+            <a class="btn btn-warning" href="{{ path('devis_edit', {'id': devi.id}) }}">Modifier mon devis</a>
+            <a id="print" class="btn btn-md btn-dark" href="javascript:window.print()">Imprimer mon devis</a>	
+
         {% endif %}
-        {% if is_granted('ROLE_USER') %}
-            <a class="btn btn-primary" href="{{ path('accueil') }}">Retour a l'accueil</a>
-        {% endif %}
-        <a class="btn btn-warning" href="{{ path('devis_edit', {'id': devi.id}) }}">Modifier</a>
-        <a id="print" class="btn btn-md btn-dark" href="javascript:window.print()">Imprimer mon devis</a>		
-        {{ include('devis/_delete_form.html.twig') }}
+       
+        	
+        
     </div>
 {% endblock %}
