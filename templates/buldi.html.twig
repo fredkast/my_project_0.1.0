@@ -23,6 +23,7 @@
                         <li><a href="/" class="bouton">Accueil</a></li>                   
                         <li><a href="/comment_ca_marche" class="bouton">Comment ça marche?</a></li>
                         <li><a href="/pourquoi" class="bouton">Pourquoi utiliser Mon pojet Immo</a></li>
+                        <li><a href="/contact" class="bouton">Contact</a></li>
                         {% if is_granted('ROLE_ADMIN') %}
                             <li><a href="/devis" class="bouton">Gestion des devis</a></li>
                         {% endif %}
@@ -47,6 +48,7 @@
                     <li><a href="/pro">Espace PRO</a></li>
                     
                     
+                    
                 </ul>
              </div>
         </header>
@@ -65,7 +67,7 @@
         
         <footer>
             <div class="copyright">
-                <p>Un formulaire de gestion de données immobilières*  "page a faire"</p>
+               <li><a href="/mentions_legales" class="bouton">Mentions legales</a></li>
                 <p>Copyright</p>
             </div>
         </footer>
