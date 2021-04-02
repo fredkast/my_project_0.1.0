@@ -116,7 +116,7 @@ class DevisController extends AbstractController
             $entityManager->remove($devi);
             $entityManager->flush();
         }
-
+        $this->addFlash('success','Votre devis a bien été supprimé!');
         return $this->redirectToRoute('devis_index');
     }
 }

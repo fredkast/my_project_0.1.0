@@ -34,10 +34,13 @@
                 <td>{{ devi.chambres }}</td>
                 <td>{{ devi.garage ? 'Oui' : 'Non' }}</td>
                 <td>{{ devi.exterieur ? 'Oui' : 'Non' }}</td>
-                {% if is_granted('ROLE_CLIENT') %}
-                <td> <b>Contactez nous pour voir la fiche client de ce devis ! </b></td>
+                {% if is_granted('ROLE_ADMIN') %}
+                    
+                    <td>{{ devi.user}}<br>{{ devi.user.prenom}}<br>{{ devi.user.telephone}}<br>{{ devi.user.email}}</td>
+                {% elseif is_granted('ROLE_CLIENT') %}
+                    <td> <b>Contactez nous pour voir la fiche client de ce devis ! </b></td>
                 {% else %}
-                <td>{{ devi.user}}<br>{{ devi.user.prenom}}<br>{{ devi.user.telephone}}<br>{{ devi.user.email}}</td>
+                    <td>{{ devi.user}}<br>{{ devi.user.prenom}}<br>{{ devi.user.telephone}}<br>{{ devi.user.email}}</td>
                 {% endif %}
                 <td>
                     {% if is_granted('ROLE_ADMIN') %}

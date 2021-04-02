@@ -31,17 +31,14 @@ class RegistrationFormType extends AbstractType
                 // 'attr' => ['class' =>'form-control'],
             ])
             ->add('roles', ChoiceType::class, [
-                
+                'label' => 'Vous etes un : ',
                 'choices' => [
                     'PARTICULIER ' => 'ROLE_USER',
                     'PROFESSIONNEL' => 'ROLE_CLIENT',
-                   
                 ],
-                'label' => 'Vous etes un : ',
-                'expanded' => true,
-                'multiple' => true,
-                
-            
+                // A AMELIORER
+                'expanded' => false,
+                'multiple' => true
             ])
             ->add('nom', TextType::class, [
                 'label'=>"Nom",
