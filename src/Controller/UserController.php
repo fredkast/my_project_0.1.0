@@ -71,8 +71,8 @@ class UserController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('user_index');
+            $this->addFlash('success','Votre profil a bien été modifié !');
+            return $this->redirectToRoute('accueil');
         }
 
         return $this->render('user/edit.html.twig', [

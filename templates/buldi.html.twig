@@ -37,14 +37,20 @@
                     {% if app.user %}
                         <p>Bonjour <b>{{ app.user.prenom }}</b></p>
                         <li><a href="/user/{{app.user.id}}" class="bouton">Mon profil</a></li>
-                    {% if is_granted('ROLE_USER,') %}
-                        <li><a href="/devis/mes_devis" class="bouton">Mes devis</a></li>
-                    {% endif %}    
                         <li><a href="/logout">Se déconnecter</a></li>
-					{% else %}
-						<li><a href="/login">Se connecter</a></li>
-                        <li><a href="/register">Créer un compte</a></li>
+                    {% else %}
+						<li><b><a href="/login">Se connecter</a></b></li>
+                        <li><b><a href="/register">Créer un compte</a></b></li>
 			        {% endif %}
+
+                    {% if is_granted('ROLE_CLIENT') %}
+                        <li><a href="/">Mes devis achetés***</a></li>
+                    {% elseif is_granted('ROLE_USER')%}  
+                        
+                         <li><a href="/devis/mes_devis" class="bouton">Mes devis</a></li>
+                    {% endif %}   
+                        
+					
                     <li><a href="/pro">Espace PRO</a></li>
                     
                     

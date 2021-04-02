@@ -4,11 +4,11 @@
 <!DOCTYPE html>
 
 <title>Edit User</title>
-    <h1>Edit User</h1>
+    <h1>Modifier mon profil</h1>
 
-    {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('user/_form.html.twig', {'button_label': 'Enregistrer les modifications'}) }}
 
-    <a href="{{ path('user_index') }}">Retour aux utilisateurs</a>
+    <a class="btn btn-primary" href="{{ path('user_index') }}">Retour aux utilisateurs</a>
 
     {{ include('user/_delete_form.html.twig') }}
 {% endblock %}

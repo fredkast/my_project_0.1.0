@@ -21,7 +21,7 @@
             {% if is_granted('ROLE_ADMIN') %}
                 <td>{{ devi.user}} {{ devi.user.prenom }} / <b>Utilisateur n° :</b> {{ devi.user.id }}</td>
             {% elseif is_granted('ROLE_CLIENT') %}
-                <td>Concatez nous pour voir la fiche de ce client </td>
+                <td><b>Concatez nous pour voir la fiche de ce client </td>
             {% else %}
                 <td>{{ devi.user}} {{ devi.user.prenom }}</td>
             {% endif %}

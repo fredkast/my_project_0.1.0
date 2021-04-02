@@ -40,25 +40,19 @@
                 <th>Email</th>
                 <td>{{ user.email }}</td>
             </tr>
-            {# {% if is_granted('ROLE_ADMIN') %} #}
             <tr>
                 <th>Vous etes un </th>
                 <td class="red">
-                {% if app.user.roles == "ROLE_USER" %}
-                PARTICULIER 
-                {% elseif app.user.roles == "ROLE_ADMIN" %}
+                {% if is_granted('ROLE_ADMIN') %}
                 ADMIN
-                {% elseif app.user.roles == "ROLE_CLIENT" %}
-                CLIENT
+                {% elseif is_granted('ROLE_CLIENT') %}
+                PROFESSIONNEL
+                {% else %}
+                PARTICULIER
                 {% endif %}
-                {# {{ user.roles ? user.roles|json_encode : '' }} #}
-                {# {% endif %} #}
                 </td>
                 
             </tr>
-            {# {% endif %} #}
-            
-            
             
         </tbody>
     </table>
