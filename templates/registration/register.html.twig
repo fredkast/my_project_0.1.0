@@ -7,7 +7,19 @@
     {% endfor %}
 
    
-
+    {% if is_granted('ROLE_USER') %}
+    <div class="row">
+        <div class="registerHero col-6">
+            <h1>Bienvenu chez Mon projet Immo,</h1>
+            
+        </div>
+        
+        <div class="registerForm col-6">
+        <h2>Vous etes connecté comme particulier. Veuillez vous deconnecter pour créer un compte PRO</h2>
+            
+        </div>
+    </div>
+    {% else %}
     <div class="row">
         <div class="registerHero col-6">
             <h1>Bienvenu chez Mon projet Immo,</h1>
@@ -34,4 +46,5 @@
             {{ form_end(registrationForm) }}
         </div>
     </div>
+    {% endif %}
 {% endblock %}

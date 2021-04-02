@@ -10,6 +10,7 @@
             <tr>
                 <th>Numero du devis </th>
                 <th>Auteur </th>
+                <th>Localisation</th>
                 <th>Type de maison </th>
                 <th>Usage </th>
                 <th>Surface en m2</th>
@@ -29,6 +30,7 @@
                 {% else %}
                 <td>{{ devi.user}}<br>{{ devi.user.prenom}}<br>{{ devi.user.telephone}}<br>{{ devi.user.email}}</td>
                 {% endif %}
+                <td>{{ devi.departement }}</td>
                 <td>{{ devi.typeMaison }}</td>
                 <td>{{ devi.typeUsage }}</td>
                 <td>{{ devi.surface }}</td>

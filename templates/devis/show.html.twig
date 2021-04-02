@@ -62,6 +62,10 @@
                 <th>Amenagment d'exterieur</th>
                 <td>{{ devi.exterieur ? 'Oui' : 'Non' }}</td>
             </tr>
+            <tr>
+                <th>Localisation du chantier (departement)</th>
+                <td>{{ devi.departement}}</td>
+            </tr>
         </tbody>
     </table>
     {% if is_granted('ROLE_USER') %}

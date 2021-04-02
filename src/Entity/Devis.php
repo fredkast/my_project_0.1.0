@@ -63,6 +63,11 @@ class Devis
      */
     private $user;
 
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $departement;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -184,5 +189,17 @@ class Devis
         return $this->name;
         // to show the id of the Category in the select
         // return $this->id;
+    }
+
+    public function getDepartement(): ?string
+    {
+        return $this->departement;
+    }
+
+    public function setDepartement(string $departement): self
+    {
+        $this->departement = $departement;
+
+        return $this;
     }
 }
