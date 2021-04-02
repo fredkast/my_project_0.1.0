@@ -9,57 +9,56 @@
         <thead>
             <tr>
                 <th>Numero du devis </th>
-                <th>Auteur </th>
                 <th>Localisation</th>
+                <th>Budget</th>
                 <th>Type de maison </th>
                 <th>Usage </th>
                 <th>Surface en m2</th>
-                <th>Budget</th>
                 <th>Nombre d'étages</th>
                 <th>Nombre de chambres</th>
-                <th>Garage</th>
+                <th>Avec garage</th>
                 <th>Amenagment d'exterieur</th>
+                <th>Auteur </th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for devi in devis %}
                 <td>{{ devi.id }}</td>
+                <td>{{ devi.departement }}</td>
+                <td>{{ devi.budget }}</td>
+                <td>{{ devi.typeMaison }}</td>
+                <td>{{ devi.typeUsage }}</td>
+                <td>{{ devi.surface }}</td>
+                <td>{{ devi.etages }}</td>
+                <td>{{ devi.chambres }}</td>
+                <td>{{ devi.garage ? 'Oui' : 'Non' }}</td>
+                <td>{{ devi.exterieur ? 'Oui' : 'Non' }}</td>
                 {% if is_granted('ROLE_CLIENT') %}
                 <td> Contactez nous pour voir la fiche client de ce devis ! </td>
                 {% else %}
                 <td>{{ devi.user}}<br>{{ devi.user.prenom}}<br>{{ devi.user.telephone}}<br>{{ devi.user.email}}</td>
                 {% endif %}
-                <td>{{ devi.departement }}</td>
-                <td>{{ devi.typeMaison }}</td>
-                <td>{{ devi.typeUsage }}</td>
-                <td>{{ devi.surface }}</td>
-                <td>{{ devi.budget }}</td>
-                <td>{{ devi.etages }}</td>
-                <td>{{ devi.chambres }}</td>
-                <td>{{ devi.garage ? 'Oui' : 'Non' }}</td>
-                <td>{{ devi.exterieur ? 'Oui' : 'Non' }}</td>
                 <td>
-                    {# {% if is_granted('ROLE_ADMIN') %}
+                    {% if is_granted('ROLE_ADMIN') %}
                         {# modifier le devis #}
-                        {# <a class="btn btn-warning" href="{{ path('devis_edit', {'id': devi.id}) }}">Modifier</a> #}
+                        <a class="btn btn-warning" href="{{ path('devis_edit', {'id': devi.id}) }}">Modifier</a> #}
                         {# supprimer le devis #}
-                        {# {{ include('devis/_delete_form.html.twig') }} #}
+                        {{ include('devis/_delete_form.html.twig') }} 
                         {# afficher le devis #}
-                        {# <a class="btn btn-primary" href="{{ path('devis_show', {'id': devi.id}) }}">Afficher le devis</a> #} 
-                    {# {% endif %} #}
-                    {% if is_granted('ROLE_CLIENT') %}
+                        <a class="btn btn-primary" href="{{ path('devis_show', {'id': devi.id}) }}">Afficher le devis</a> 
+                    {% elseif is_granted('ROLE_CLIENT') %}
                         {# afficher le devis #}
-                        <a class="btn btn-primary" href="{{ path('devis_show', {'id': devi.id}) }}">Afficher le devis</a>
-                        <a class="btn btn-success" href="{{ path('devis_show', {'id': devi.id}) }}">Demander la fiche client "ajouter au panier"</a>
-                    {% endif %}
-                    {% if is_granted('ROLE_USER') %}
+                            <a class="btn btn-primary" href="{{ path('devis_show', {'id': devi.id}) }}">Afficher le devis</a>
+                        {# ajouter au panier #}
+                        <a class="btn btn-success" href="{{ path('contact') }}" >Demander la fiche client</a>
+                    {% else %}
                         {# modifier le devis #}
-                        <a class="btn btn-warning" href="{{ path('devis_edit', {'id': devi.id}) }}">Modifier mon devis</a>
+                            <a class="btn btn-warning" href="{{ path('devis_edit', {'id': devi.id}) }}">Modifier mon devis</a>
                         {# supprimer le devis #}
-                        {{ include('devis/_delete_form.html.twig') }}
+                            {{ include('devis/_delete_form.html.twig') }}
                         {# afficher le devis #}
-                        <a class="btn btn-primary" href="{{ path('devis_show', {'id': devi.id}) }}">Afficher le devis</a>
+                            <a class="btn btn-primary" href="{{ path('devis_show', {'id': devi.id}) }}">Afficher le devis</a>
                     {% endif %}
 
                 

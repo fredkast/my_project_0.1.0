@@ -22,7 +22,7 @@
                     <ul>
                         <li><a href="/" class="bouton">Accueil</a></li>                   
                         <li><a href="/comment_ca_marche" class="bouton">Comment ça marche?</a></li>
-                        <li><a href="/pourquoi" class="bouton">Pourquoi utiliser Mon pojet Immo</a></li>
+                        <li><a href="/pourquoi" class="bouton">Pourquoi utiliser Mon projet Immo</a></li>
                         <li><a href="/contact" class="bouton">Contact</a></li>
                         {% if is_granted('ROLE_ADMIN') %}
                             <li><a href="/devis" class="bouton">Gestion des devis</a></li>
@@ -37,7 +37,7 @@
                     {% if app.user %}
                         <p>Bonjour <b>{{ app.user.prenom }}</b></p>
                         <li><a href="/user/{{app.user.id}}" class="bouton">Mon profil</a></li>
-                    {% if is_granted('ROLE_USER') %}
+                    {% if is_granted('ROLE_USER,') %}
                         <li><a href="/devis/mes_devis" class="bouton">Mes devis</a></li>
                     {% endif %}    
                         <li><a href="/logout">Se déconnecter</a></li>

@@ -83,7 +83,7 @@
         
             <a class="btn btn-primary" href="{{ path('devis_index') }}">Retour aux devis</a>
             <a id="print" class="btn btn-md btn-dark" href="javascript:window.print()">Imprimer mon devis</a>	
-            <a class="btn btn-danger" href="#">"Ajouter au panier la fiche complete"</a>
+            <a class="btn btn-danger" href="{{ path('contact') }}">Nous contacter a propos de ce client</a>
 
         {% elseif is_granted('ROLE_USER') %}
         
