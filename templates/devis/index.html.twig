@@ -40,12 +40,29 @@
                 <td>{{ devi.garage ? 'Oui' : 'Non' }}</td>
                 <td>{{ devi.exterieur ? 'Oui' : 'Non' }}</td>
                 <td>
-                    <a class="btn btn-primary" href="{{ path('devis_show', {'id': devi.id}) }}">Afficher le devis</a>
-                    <a class="btn btn-success" href="{{ path('devis_show', {'id': devi.id}) }}">Demander la fiche client "ajouter au panier"</a>
-                    {% if is_granted('ROLE_ADMIN') %}
-                    <a class="btn btn-warning" href="{{ path('devis_edit', {'id': devi.id}) }}">Modifier</a>
-                    {{ include('devis/_delete_form.html.twig') }}
+                    {# {% if is_granted('ROLE_ADMIN') %}
+                        {# modifier le devis #}
+                        {# <a class="btn btn-warning" href="{{ path('devis_edit', {'id': devi.id}) }}">Modifier</a> #}
+                        {# supprimer le devis #}
+                        {# {{ include('devis/_delete_form.html.twig') }} #}
+                        {# afficher le devis #}
+                        {# <a class="btn btn-primary" href="{{ path('devis_show', {'id': devi.id}) }}">Afficher le devis</a> #} 
+                    {# {% endif %} #}
+                    {% if is_granted('ROLE_CLIENT') %}
+                        {# afficher le devis #}
+                        <a class="btn btn-primary" href="{{ path('devis_show', {'id': devi.id}) }}">Afficher le devis</a>
+                        <a class="btn btn-success" href="{{ path('devis_show', {'id': devi.id}) }}">Demander la fiche client "ajouter au panier"</a>
                     {% endif %}
+                    {% if is_granted('ROLE_USER') %}
+                        {# modifier le devis #}
+                        <a class="btn btn-warning" href="{{ path('devis_edit', {'id': devi.id}) }}">Modifier mon devis</a>
+                        {# supprimer le devis #}
+                        {{ include('devis/_delete_form.html.twig') }}
+                        {# afficher le devis #}
+                        <a class="btn btn-primary" href="{{ path('devis_show', {'id': devi.id}) }}">Afficher le devis</a>
+                    {% endif %}
+
+                
                 </td>
             </tr>
         {% else %}

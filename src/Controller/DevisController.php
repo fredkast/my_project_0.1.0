@@ -19,7 +19,18 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
  */
 class DevisController extends AbstractController
 {
-  
+    /**
+     * @IsGranted("ROLE_USER")
+     * @Route("/mes_devis", name="devis_mes_devis", methods={"GET"})
+     */
+    public function mes_devis(DevisRepository $devisRepository): Response
+    {
+        return $this->render('devis/index.html.twig', [
+            // renvois les devis ou user est l'utilisateur loggé
+            'devis' => $devisRepository->findBy(array('user'=>$this->getUser()))
+            
+        ]);
+    }
     
     /**
      * @IsGranted("ROLE_CLIENT")

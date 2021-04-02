@@ -38,7 +38,7 @@
                         <p>Bonjour <b>{{ app.user.prenom }}</b></p>
                         <li><a href="/user/{{app.user.id}}" class="bouton">Mon profil</a></li>
                     {% if is_granted('ROLE_USER') %}
-                        <li><a href="" class="bouton">Mes devis***</a></li>
+                        <li><a href="/devis/mes_devis" class="bouton">Mes devis</a></li>
                     {% endif %}    
                         <li><a href="/logout">Se déconnecter</a></li>
 					{% else %}
