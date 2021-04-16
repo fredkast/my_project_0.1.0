@@ -1,44 +1,124 @@
 body{
 	font-family: 'Open Sans Condensed', sans-serif;
-	height: 100%;
+	height: auto;
+	width: auto;
 	text-align: center;
+	background-color: #F8F8F8;
+	
 	
 }
 h1{
-	font-family: 'Oswald', sans-serif;
+	font-family: bebas-neue-pro, sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	text-transform: uppercase;
+	color: white;
+	font-size: 40px;
+	padding-top: 80px;
+	text-shadow: 1px 3px 9px rgba(70, 68, 68, 0.562);
 }
 
 h2{
-	font-family: 'Open Sans Condensed', sans-serif;
-
+	font-family: bebas-neue-pro, sans-serif;
+	font-size: 30px;
+	font-weight: 500;
+	text-transform: uppercase;
+	color:black;
+	padding-top: 80px;
 }
+h3{
+	font-family: bebas-neue-pro, sans-serif;
+	font-size: 20px;
+	font-style: normal;
+	text-transform: uppercase;
+}
+p{
+	font-family: 'Open Sans Condensed', sans-serif;
+	color: black;
+	padding-top: 20px;
+	font-size: 20px;
+	margin: 0px;
+}
+.fraise{
+	background-color: #EF6361;
+}
+.banane
+{
+	background-color: #ffc65d;
+}
+.colorWhite{
+	color: white;
+}
+.boutton{
+	color: #F09C4C;
+	background-color: white;
+	text-decoration: none;
+	text-align: center;
+	vertical-align: middle;
+	padding: .375rem .75rem;
+	margin-top: 90px;
+	font-size: 20px;
+	border-radius: .70rem;
+	font-family: bebas-neue-pro, sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	text-transform: uppercase;
+	box-shadow: 1px 3px 9px rgba(70, 68, 68, 0.562);
+}
+.boutton:hover{
+	color: white;
+	background-color: #F09C4C;
+}
+.bouttonDark{
+	color: white;
+	background-color: #F09C4C;
+	text-decoration: none;
+	text-align: center;
+	vertical-align: middle;
+	padding: .375rem .75rem;
+	margin: 40px;
+	font-size: 20px;
+	border-radius: .70rem;
+	font-family: bebas-neue-pro, sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	text-transform: uppercase;
+	box-shadow: 1px 3px 9px rgba(70, 68, 68, 0.562);
+}
+.bouttonDark:hover{
+	color: #F09C4C;
+	background-color: white;
+}
+
 /* --------------------Header-------------------- */
 header{
 	width: 100%;
-	/* height: 25%; */
 	height: auto;
-	background-color: cadetblue;
+	background-color: #EF6361;
+	display: flex;
+	
 
 }
-header h1{
-	font-family: 'Courgette', cursive;
-	font-size: 6em;
 
-}
 header a{
 	color: white;
 }
+header a:hover{
+	color: white;
+	font-size: 20px;
+}
 .navigation{
 	width: 100%;
-	display: flex;
-	justify-content: space-between;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
 
 }
 ul 
 {
 	display: flex;
 	justify-content: space-around;
-	margin: 50px;
+    
 }
 li{
 	list-style: none;
@@ -46,32 +126,123 @@ li{
 a{
 	list-style: none;
 	text-decoration: none;
-	
+	color: black;	
+}
+a :hover{
+	color: red;
 }
 li a {
-	margin: 10px;
+
 	text-decoration: none;
 }
 .boutonHs{
 	color: brown;
 }
-.button{
-	color: white;
-}
-/* --------------------Main-------------------- */
 
-main{
-	width:auto;
-	height: auto;
-	background-color: white;
-	display:block;
-	top:80px;
-	margin-bottom: 10px;
+/* --------------------Main-------------------- */
+/* page accueil */
+
+
+.hero{
+	background-image: url("../img/backgroundHero.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 80vh;
 }
-.container{
+
+#bounce{
 	
-	background-color: white;	
+	margin-top: 180px;
+	-webkit-animation: bounce .5s infinite alternate;
+  	animation: bounce .5s infinite alternate;
 }
+@keyframes bounce {
+	to { transform: scale(1.2); }
+  }
+@-webkit-keyframes bounce {
+	to { -webkit-transform: scale(1.2); }
+  }
+
+#vousVoulezConstruire{
+	height: auto;
+}
+
+.stepByStep{
+	margin-left: 50px;
+	margin-right: 50px;
+
+}
+
+.step1{
+	display: flex;
+}
+.stepNumber{
+	margin: 20px;
+	height: 6vw;
+}
+.paperPlaneLeft{
+	width: 8%;
+	margin-right: 300px;
+	margin-bottom: 60px;
+}
+.paperPlaneRight{
+	width: 11%;
+	margin-left: 200px;
+	margin-top: 15px;
+}
+.paperPlaneBig{
+	width: 15%;
+}
+
+.banner{
+	height: 20vh;
+	background-color:#EF6361 ;
+	display: flex;
+	justify-content: center;
+	width: auto;
+}
+
+.bannerImg{
+	width: 8vw;
+}
+
+.bannerChild{
+	display: flex;
+	width: 40%;
+}
+
+.bannerH3{
+	margin-top: 15%;
+	margin-left: 30px;
+	margin-right: 10px;
+}
+
+#nosPartenaires{
+	height: 50vh;
+	vertical-align: middle;
+}
+
+#nosPartenaires h2,p,a{
+	margin-top: 20px;
+}
+
+#vousVendez{
+	height: 60vh;
+	background-image: url(../img/Kazba\ vendre\ mon\ terrain.jpg);
+	background-size: cover;
+	text-align: right;
+}
+.vousVendezChild{
+	margin-right: 25%;
+}
+.vousVendezChild button{
+	color: #EF6361;
+	
+}
+
+/* ___________________ */
+
+
 thead{
 	border-collapse: collapse;
 	background-color: cadetblue;
@@ -82,9 +253,6 @@ td{
 	border: solid 1px black;
 	background-color: white;
 }
-.red{
-	background-color: red;
-}
 
 
 /* --------------------Footer-------------------- */
@@ -93,7 +261,15 @@ footer{
 	width:100%;
 	height: 25%;
 	min-height: 70px;
-	background: cadetblue;
+	background: white;
 	position: relative;
 	padding: 20px 0px;
+}
+.footerListLeft{
+	display: block;
+	text-align: left;
+}
+.footerListRight{
+	display: block;
+	text-align: right;
 }

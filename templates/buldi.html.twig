@@ -9,6 +9,10 @@
         {% block javascripts %}{#{{ encore_entry_script_tags('app') }}#}{% endblock %}
      
         <link rel="preconnect" href="https://fonts.gstatic.com">
+        {# adobe font Bebas Neue Pro Regular #}
+        <link rel="stylesheet" href="https://use.typekit.net/bre7brd.css">
+
+
         <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Open+Sans+Condensed:wght@300;700&family=Oswald:wght@500&display=swap" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
@@ -16,65 +20,77 @@
     </head>
     <body>
         <header>
-            <a href="/" ><h1>Mon projet Immo</h1></a>
-            <div class="navigation">
-                <div class="menu">
-                    <ul>
-                        <li><a href="/" class="bouton">Accueil</a></li>                   
-                        <li><a href="/comment_ca_marche" class="bouton">Comment ça marche?</a></li>
-                        <li><a href="/pourquoi" class="bouton">Pourquoi utiliser Mon projet Immo</a></li>
-                        <li><a href="/contact" class="bouton">Contact</a></li>
-                        {% if is_granted('ROLE_ADMIN') %}
-                            <li><a href="/devis" class="bouton">Gestion des devis</a></li>
-                        {% endif %}
-                        
-                        {% if is_granted('ROLE_ADMIN') %}
-                            <li><a href="/user" class="bouton">Gestion des utilisateurs</a></li>
-                        {% endif %}
-                    </ul>
-                </div>    
-                <ul>
-                    {% if app.user %}
-                        <p>Bonjour <b>{{ app.user.prenom }}</b></p>
-                        <li><a href="/user/{{app.user.id}}" class="bouton">Mon profil</a></li>
-                        <li><a href="/logout">Se déconnecter</a></li>
-                    {% else %}
-						<li><b><a href="/login">Se connecter</a></b></li>
-                        <li><b><a href="/register">Créer un compte</a></b></li>
-			        {% endif %}
+            <div class="row navigation" >
+                    <div class="col col-2">
+                        <a href="/" ><img class="logoDark" src="img/SVG/LogoDark.svg" alt="" width="100%" /></a>
+                    </div>
+                    <div class="menu col col-6">
+                        <ul>             
+                            <li><a href="/comment_ca_marche" class="bouton">Comment ça marche?</a></li>
+                            <li><a href="/pourquoi" class="bouton">Pourquoi utiliser Mon projet Immo</a></li>
+                            <li><a href="/contact" class="bouton">Contact</a></li>
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <li><a href="/devis" class="bouton">Gestion des devis</a></li>
+                            {% endif %}
+                            
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <li><a href="/user" class="bouton">Gestion des utilisateurs</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    <div class="col col-4">    
+                        <ul>
+                            {% if app.user %}
+                                <p>Bonjour <b>{{ app.user.prenom }}</b></p>
+                                <li><a href="/user/{{app.user.id}}" class="bouton">Mon profil</a></li>
+                                <li><a href="/logout">Se déconnecter</a></li>
+                            {% else %}
+                                <li><b><a href="/login">Se connecter</a></b></li>
+                                <li><b><a href="/register">Créer un compte</a></b></li>
+                            {% endif %}
 
-                    {% if is_granted('ROLE_CLIENT') %}
-                        <li><a href="/">Mes devis achetés***</a></li>
-                    {% elseif is_granted('ROLE_USER')%}  
-                        
-                         <li><a href="/devis/mes_devis" class="bouton">Mes devis</a></li>
-                    {% endif %}   
-                        
-					
-                    <li><a href="/pro">Espace PRO</a></li>
-                    
-                    
-                    
-                </ul>
-             </div>
-        </header>
-        <main>
-            <div class="container">
-            {# Message Flash #}
-            {% for message in app.flashes('success') %}
-            <div class="alert alert-success">
-                {{ message }}
+                            {% if is_granted('ROLE_CLIENT') %}
+                                <li><a href="/">Mes devis achetés***</a></li>
+                            {% elseif is_granted('ROLE_USER')%}  
+                                
+                                <li><a href="/devis/mes_devis" class="bouton">Mes devis</a></li>
+                            {% endif %}   
+
+                            <li><a href="/pro">Espace PRO</a></li> 
+                        </ul>
+                    </div
             </div>
-            {% endfor %}
+        </header>
+        
+           
+                    {# Message Flash #}
+                {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+                {% endfor %}
 
                 {% block body %}{% endblock %}
-            </div>
-        </main>
+          
         
-        <footer>
-            <div class="copyright">
-               <li><a href="/mentions_legales" class="bouton">Mentions legales et conditions d'utilisations</a></li>
-                <p>Copyright</p>
+        
+        <footer class="row">
+            <div class="col">
+                <ul class="col footerListLeft">
+                    <li><a href="/mentions_legales" class="bouton">Mentions légales</a></li>
+                    <li><a href="/"> Pourquoi utiliser Kazba</a></li>
+                    <li><a href="/">Qui sommes nous?</a></li>
+                </ul>
+            </div>
+            <div class="col">
+               <a href="/"> <img src="img/SVG/LogoWhite.svg" alt="KazbaLogo"></a>
+                <a href="https://www.linkedin.com/in/frederic-castel-8a57771a6/"><p>Kazba - Copyright Frederic Castel - 2021</p></a>
+            </div>
+            <div class="col ">
+                <ul class="footerListRight">
+                    <li><a href="/mentions_legales" class="bouton">Vous êtes professionnel?</a></li>
+                    <li><a href="/contact">Nous contacter</a></li>
+                </ul>
             </div>
         </footer>
     </body>

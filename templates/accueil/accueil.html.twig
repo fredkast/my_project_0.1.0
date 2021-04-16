@@ -1,23 +1,77 @@
 {% extends "buldi.html.twig" %}
 {% block body %}
-<h1>Demandez la maison de vos envies!</h1>
-<div class="row">
-    <div class="col-6">
-        <img src="img/hero.jpg" alt="" width="90%" />
-    </div>
-    <div class="col-6">
-        {% if is_granted('ROLE_CLIENT')%}
-        <h2>Vous etes professionnels et vous voulez voir les devis des particuliers qui correspondent a vos competences? Nous vous permettons d'acceder a une base de données clients sans demarcher!</h2>
-        {% else %} 
-        <h2>Parce que votre besoin est unique, notre configurateur vous permet de définir votre maison idéale et nous nous occupons de trouver des artisans pour votre projet !</h2>
-        {% endif %}
-        {% if is_granted('ROLE_CLIENT')%}
-            <a href="/pro/"><button class="btn btn-success">Acceder a l'espace PRO</button></a>
-            {% elseif is_granted('ROLE_USER') %}
-            <a href="/devis/new"><button class="btn btn-success">Réaliser un devis</button></a>
+<main class="">
+    <div class="hero banane justify-content-center">
+        <h1>Economisez des heures de recherche en 3 minutes !</h1>
+        <div class="row">
+            {% if is_granted('ROLE_CLIENT')%}
+            <p class="colorWhite">Vous ne trouvez pas de constructeurs pour votre projet immobilier?<br>Laissez nous présenter votre projet à nos partenaires</p>
             {% else %} 
-            <a href="/register"><button class="btn btn-warning">Créer un compte</button></a>
-        {% endif %}
+            <p class="colorWhite">Vous ne trouvez pas de constructeurs pour votre projet immobilier?<br>Laissez nous présenter votre projet à nos partenaires</p>
+            {% endif %}
+        </div>
+        <div>
+            {% if is_granted('ROLE_CLIENT')%}
+                <a href="/pro/"><button class="btn boutton">Acceder a l'espace PRO</button></a>
+                {% elseif is_granted('ROLE_USER') %}
+                <a href="/devis/new"><button class="btn boutton">Réaliser un devis</button></a>
+                {% else %} 
+                <a href="/register"><button class="btn boutton">Créer un compte</button></a>
+            {% endif %}
+        </div>
+        <div >
+            <a href="#vousVoulezConstruire"><img src="img/SVG/down.svg" alt="" id="bounce"></a>
+        </div>
     </div>
-</div>
+
+    <div id="vousVoulezConstruire">
+        <h2>Vous voulez construire ?</h2>
+        <p>Vous ne trouvez pas de constructeurs pour votre projet immobilier?<br>Laissez nous présenter votre projet à nos partenaires</p>
+        <img class="paperPlaneRight" src="img/SVG/PaperPlaneRight.svg">
+        <div class="stepByStep row ">
+            <div class="col step1">
+                <img src="img/SVG/etape1.svg" class="stepNumber">
+                <p>Je dépose mon projet sur Kazba en 3 minutes</p>
+            </div>
+
+            <div class="col step1"> 
+                <img src="img/SVG/etape2.svg" class="stepNumber">
+                <p>KAZBA présente votre projet à ses partenaires</p>
+            </div>
+            <div class="col step1">
+                <img src="img/SVG/etape3.svg" class="stepNumber">
+                <p>Les professionnels vous contactent pour réaliser votre projet</p>
+            </div>
+        </div>
+        <div>
+            <img class="paperPlaneLeft" src="img/SVG/PaperPlaneLeft.svg">
+            <img class="paperPlaneBig" src="img/SVG/PaperPlaneBig.svg">
+
+        </div>
+        <a href="/devis/new"><button class="btn bouttonDark">Déposer un projet</button></a>   
+    </div>
+
+    <div class="banner">
+        <div class="bannerChild">
+                <h3 class="colorWhite bannerH3">Gratuit</h3>               
+                <img src="img/SVG/free.svg" class="bannerImg">
+                <h3 class="colorWhite bannerH3">rapide</h3>
+                <img src="img/SVG/fast.svg" class="bannerImg">
+                <h3 class="colorWhite bannerH3">Sans engagement</h3>
+                <img src="img/SVG/choice.svg" class="bannerImg">
+        </div>
+    </div>
+    <div id="nosPartenaires">
+        <h2>Nos partenaires dans votre région</h2>
+        <p class="">Quelque soit la taille de votre projet nous trouverons un professionnel intéressés !<br>”Vous ne cherchez pas, c’est eux qui viennent à vous !”</p>
+        <a href="/devis/new"><button class="btn bouttonDark">Déposer un projet</button></a>   
+    </div>
+     <div id="vousVendez">
+        <div class="vousVendezChild">
+            <h2>Vous voulez vendre votre terrain ?</h2>
+            <p class="colorWhite">Vous avez un terrain et vous voulez en tirer le maximum sans effort :</p>
+            <a href="/devis/new"><button class="btn boutton">Trouver un acheteur</button></a>   
+        </div>
+    </div>
+</main>
 {% endblock %}
