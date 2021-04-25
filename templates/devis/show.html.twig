@@ -11,9 +11,6 @@
     <h1>Vous serez bientot contacté par des professionnels!</h1>
 {% endif %}
 
-    
-   
-
     <table class="table">
         <tbody>
         <tr>
@@ -89,8 +86,8 @@
         
             <a class="btn btn-primary" href="{{ path('accueil') }}">Quitter et retourner a l'accueil</a>
             {{ include('devis/_delete_form.html.twig') }}
-            <a class="btn btn-warning" href="{{ path('devis_edit', {'id': devi.id}) }}">Modifier mon devis</a>
-            <a id="print" class="btn btn-md btn-dark" href="javascript:window.print()">Imprimer mon devis</a>	
+            <a class="btn btn-warning" href="{{ path('devis_edit', {'id': devi.id}) }}">Modifier</a>
+            <a id="print" class="btn btn-md btn-dark" href="javascript:window.print()">Imprimer</a>	
 
         {% endif %}
        

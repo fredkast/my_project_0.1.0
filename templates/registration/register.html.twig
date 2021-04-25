@@ -1,50 +1,48 @@
 {% extends "buldi.html.twig" %}
 
 {% block body %}
+<div class="register">
+        {% for flashError in app.flashes('verify_email_error') %}
+            <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+        {% endfor %}
 
-    {% for flashError in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
-    {% endfor %}
-
-   
-    {% if is_granted('ROLE_USER') %}
-    <div class="row">
-        <div class="registerHero col-6">
-            <h1>Bienvenu chez Mon projet Immo,</h1>
+    
+        {% if is_granted('ROLE_USER') %}
+        <div class="row">
+            <div class="registerHero col-6">
+                <h1>Bienvenu chez Kazba</h1>
+                
+            </div>
             
+            <div class="registerForm col-6">
+            <h2>Vous etes connecté comme particulier. Veuillez vous deconnecter pour créer un compte PRO</h2>
+                
+            </div>
         </div>
+        {% else %}
+        <div class="row">
+            <div class="registerHero">
+                <h1>Bienvenu chez Kazba</h1>
+                <h2>Veuillez <strong>creer un compte </strong></h2>
+            </div>
+            <div class="registerForm">
+                {{ form_start(registrationForm) }}
+                {{ form_row(registrationForm.email) }}
+                {{ form_row(registrationForm.plainPassword, {
+                    label: 'Choisissez votre mot de passe'
+                }) }}
+                {{ form_row(registrationForm.roles) }}
+                {{ form_row(registrationForm.nom) }}
+                {{ form_row(registrationForm.prenom) }}
+                {{ form_row(registrationForm.adresse) }}
+                {{ form_row(registrationForm.telephone) }}
+                <button type="submit" class="btn boutton form_boutton">Créer mon compte</button>
+                {{ form_end(registrationForm) }}
+            </div>
+        </div>
+        <div>
         
-        <div class="registerForm col-6">
-        <h2>Vous etes connecté comme particulier. Veuillez vous deconnecter pour créer un compte PRO</h2>
-            
         </div>
+        {% endif %}
     </div>
-    {% else %}
-    <div class="row">
-        <div class="registerHero col-6">
-            <h1>Bienvenu chez Mon projet Immo,</h1>
-            
-        </div>
-        
-        <div class="registerForm col-6">
-        <h2>Commencez par créer un compte</h2>
-            {{ form_start(registrationForm) }}
-            {{ form_row(registrationForm.email) }}
-            {# {{ form_row(registrationForm.username) }} #}
-            {{ form_row(registrationForm.plainPassword, {
-                label: 'Votre mot de passe'
-            }) }}
-
-            <h2>Ensuite remplissez ce formulaire</h2>
-            <p>Nous pourrons ainsi vous mettre en relation avec des entrepreneurs et artisans de votre region!</p>
-            {{ form_row(registrationForm.roles) }}
-            {{ form_row(registrationForm.nom) }}
-            {{ form_row(registrationForm.prenom) }}
-            {{ form_row(registrationForm.adresse) }}
-            {{ form_row(registrationForm.telephone) }}
-        <button type="submit" class="btn btn-success">Créer mon compte</button>
-            {{ form_end(registrationForm) }}
-        </div>
-    </div>
-    {% endif %}
 {% endblock %}

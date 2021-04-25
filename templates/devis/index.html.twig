@@ -3,78 +3,91 @@
 
 {% block body %}
 <!DOCTYPE html>
-    <h1>Devis en cours</h1>
+<div class="listDevis">
+    
+        <div class="espace_pro_main">
+            <h1 >Projets <strong>en cours</strong></h1>
+        </div>
+        <div class="formList">
+            <div class="formListChild">
+                <table class="table table-hover col-8">
+                <thead>
+                    <tr>
+                        <th>Numero du devis </th>
+                        <th>Localisation</th>
+                        <th>Budget</th>
+                        <th>Type de maison </th>
+                        <th>Usage </th>
+                        <th>Surface en m2</th>
+                        <th>Nombre d'étages</th>
+                        <th>Nombre de chambres</th>
+                        <th>Avec garage</th>
+                        <th>Amenagment d'exterieur</th>
+                        {% if is_granted('ROLE_ADMIN') %}  
+                            <th>Auteur </th>
+                        {% elseif is_granted('ROLE_CLIENT') %}
+                            <th>Auteur </th>
+                        {% else %}
+                            {# <td>{{ devi.user}}<br>{{ devi.user.prenom}}<br>{{ devi.user.telephone}}<br>{{ devi.user.email}}</td> #}
+                        {% endif %}
+                        {# <th>Auteur </th> #}
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for devi in devis %}
+                        <td><strong>{{ devi.id }}</strong></td>
+                        <td>{{ devi.departement }}</td>
+                        <td>{{ devi.budget }}</td>
+                        <td>{{ devi.typeMaison }}</td>
+                        <td>{{ devi.typeUsage }}</td>
+                        <td>{{ devi.surface }}</td>
+                        <td>{{ devi.etages }}</td>
+                        <td>{{ devi.chambres }}</td>
+                        <td>{{ devi.garage ? 'Oui' : 'Non' }}</td>
+                        <td>{{ devi.exterieur ? 'Oui' : 'Non' }}</td>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            
+                            <td>{{ devi.user}}<br>{{ devi.user.prenom}}<br>{{ devi.user.telephone}}<br>{{ devi.user.email}}</td>
+                        {% elseif is_granted('ROLE_CLIENT') %}
+                            <td> <b>Contactez nous pour voir la fiche client de ce devis ! </b></td>
+                        {% else %}
+                            {# <td>{{ devi.user}}<br>{{ devi.user.prenom}}<br>{{ devi.user.telephone}}<br>{{ devi.user.email}}</td> #}
+                        {% endif %}
+                        <td id="action">
+                            {% if is_granted('ROLE_ADMIN') %}
+                                {# modifier le devis #}
+                                <a class="btn bouttonDark  listBtn" href="{{ path('devis_edit', {'id': devi.id}) }}">Modifier</a> 
+                                {# afficher le devis #}
+                                <a class="btn boutton listBtn" href="{{ path('devis_show', {'id': devi.id}) }}">Afficher</a> 
+                                {# supprimer le devis #}
+                                {{ include('devis/_delete_form.html.twig') }} 
 
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>Numero du devis </th>
-                <th>Localisation</th>
-                <th>Budget</th>
-                <th>Type de maison </th>
-                <th>Usage </th>
-                <th>Surface en m2</th>
-                <th>Nombre d'étages</th>
-                <th>Nombre de chambres</th>
-                <th>Avec garage</th>
-                <th>Amenagment d'exterieur</th>
-                <th>Auteur </th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for devi in devis %}
-                <td>{{ devi.id }}</td>
-                <td>{{ devi.departement }}</td>
-                <td>{{ devi.budget }}</td>
-                <td>{{ devi.typeMaison }}</td>
-                <td>{{ devi.typeUsage }}</td>
-                <td>{{ devi.surface }}</td>
-                <td>{{ devi.etages }}</td>
-                <td>{{ devi.chambres }}</td>
-                <td>{{ devi.garage ? 'Oui' : 'Non' }}</td>
-                <td>{{ devi.exterieur ? 'Oui' : 'Non' }}</td>
-                {% if is_granted('ROLE_ADMIN') %}
-                    
-                    <td>{{ devi.user}}<br>{{ devi.user.prenom}}<br>{{ devi.user.telephone}}<br>{{ devi.user.email}}</td>
-                {% elseif is_granted('ROLE_CLIENT') %}
-                    <td> <b>Contactez nous pour voir la fiche client de ce devis ! </b></td>
+                            {% elseif is_granted('ROLE_CLIENT') %}
+                                {# afficher le devis #}
+                                    <a class="btn boutton listBtn listBtn" href="{{ path('devis_show', {'id': devi.id}) }}">Afficher</a>
+                                {# ajouter au panier #}
+                                <a class="btn boutton listBtn" href="{{ path('contact') }}" >Demander la fiche client</a>
+
+                            {% else %}
+                                {# modifier le devis #}
+                                    <a class="btn bouttonDark listBtn" href="{{ path('devis_edit', {'id': devi.id}) }}">Modifier</a>
+                                {# supprimer le devis #}
+                                    {{ include('devis/_delete_form.html.twig') }}
+                            {% endif %}
+
+                        
+                        </td>
+                    </tr>
                 {% else %}
-                    <td>{{ devi.user}}<br>{{ devi.user.prenom}}<br>{{ devi.user.telephone}}<br>{{ devi.user.email}}</td>
-                {% endif %}
-                <td>
-                    {% if is_granted('ROLE_ADMIN') %}
-                        {# modifier le devis #}
-                        <a class="btn btn-warning" href="{{ path('devis_edit', {'id': devi.id}) }}">Modifier</a> 
-                        {# supprimer le devis #}
-                        {{ include('devis/_delete_form.html.twig') }} 
-                        {# afficher le devis #}
-                        <a class="btn btn-primary" href="{{ path('devis_show', {'id': devi.id}) }}">Afficher</a> 
-                    {% elseif is_granted('ROLE_CLIENT') %}
-                        {# afficher le devis #}
-                            <a class="btn btn-primary" href="{{ path('devis_show', {'id': devi.id}) }}">Afficher le devis</a>
-                        {# ajouter au panier #}
-                        <a class="btn btn-success" href="{{ path('contact') }}" >Demander la fiche client</a>
-                    {% else %}
-                        {# modifier le devis #}
-                            <a class="btn btn-warning" href="{{ path('devis_edit', {'id': devi.id}) }}">Modifier mon devis</a>
-                        {# supprimer le devis #}
-                            {{ include('devis/_delete_form.html.twig') }}
-                        {# afficher le devis #}
-                            <a class="btn btn-primary" href="{{ path('devis_show', {'id': devi.id}) }}">Afficher le devis</a>
-                    {% endif %}
-
-                
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="10">Aucuns devis</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    {% if is_granted('ROLE_ADMIN') %}
-    <a class="btn btn-success" href="{{ path('devis_new') }}">Nouveau devis</a>
-    {% endif %}
+                    <tr>
+                        <td colspan="10"><h2>Aucuns projet</h2></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                </table>
+            </div>
+        </div>
+    
+</div>
 {% endblock %}
