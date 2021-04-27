@@ -1,12 +1,15 @@
 {% extends "buldi.html.twig" %}
-
+   {% block stylesheets %} <link rel="styleSheet" href="{{asset('css/contact_style.css')}}" type="text/css" />{% endblock %}
 {% block body %}
 <!DOCTYPE html>
 
-
-    <title>Contact</title>
-<div class="contact row">
-    <h1 id="contact_h1">Nous contacter</h1>
-    <div class="form col-10">{{ form(contactForm)}}</div>
+<title>Contact</title>
+<div class="container_contact">
+    <div class="contact row">
+        
+            <h1 id="contact_h1">Nous contacter</h1>
+            <div class="form col-9">{{ form(contactForm)}}</div>
+        
+    </div>
 </div>
 {% endblock %}

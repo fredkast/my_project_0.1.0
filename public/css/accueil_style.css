@@ -1,0 +1,115 @@
+.hero{
+	background-image: url("../img/Background-main-hero.svg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 80vh;
+}
+
+#bounce{
+	
+	margin-top: 180px;
+	-webkit-animation: bounce .5s infinite alternate;
+  	animation: bounce .5s infinite alternate;
+}
+@keyframes bounce {
+	to { transform: scale(1.2); }
+  }
+@-webkit-keyframes bounce {
+	to { -webkit-transform: scale(1.2); }
+  }
+
+#vousVoulezConstruire{
+	height: auto;
+	margin: 60px;
+	border: solid 2px red;
+	border-radius: 60px;
+}
+#vousVoulezConstruire h2{
+	z-index: 2;
+	padding-top: 0;
+	margin-top: -10px;
+	margin-left: 30%;
+	margin-right: 30%;
+	background-color: #F8F8F8;
+}
+
+.stepByStep{
+	margin-left: 50px;
+	margin-right: 50px;
+
+}
+
+.step1{
+	display: flex;
+}
+.stepNumber{
+	margin: 20px;
+	height: 6vw;
+}
+.paperPlaneLeft{
+	width: 8%;
+	margin-right: 300px;
+	margin-bottom: 60px;
+}
+.paperPlaneRight{
+	width: 11%;
+	margin-left: 200px;
+	margin-top: 15px;
+}
+.paperPlaneBig{
+	width: 15%;
+}
+
+.banner{
+	height: 20vh;
+	background-color:#EF6361 ;
+	display: flex;
+	justify-content: center;
+	width: auto;
+}
+
+.bannerImg{
+	width: 8vw;
+}
+
+.bannerChild{
+	display: flex;
+	
+}
+
+.bannerH3{
+	margin-top: 15%;
+	margin-left: 30px;
+	margin-right: 10px;
+}
+
+#nosPartenaires{
+	background-color:#F8F8F8 ;
+	height: auto;
+	width: 100%;
+	margin: 50px;
+	vertical-align: middle;
+}
+
+#nosPartenaires h2,p,a{
+	margin-top: 20px;
+}
+
+#vousVendez{
+	height: 60vh;
+	background-image: url(../img/vendre_son_terrain.jpg);
+	opacity: 0.6;
+	background-size: cover;
+	text-align: right;
+}
+.vousVendezChild{
+	margin-right: 25%;
+	z-index: 0;
+}
+.oppacity{
+	opacity: 1;
+}
+.vousVendezChild button{
+	color: #EF6361;
+	
+}

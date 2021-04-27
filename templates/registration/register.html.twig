@@ -1,12 +1,16 @@
 {% extends "buldi.html.twig" %}
-
+   {% block stylesheets %} <link rel="styleSheet" href="{{asset('css/register_style.css')}}" type="text/css" />{% endblock %}
 {% block body %}
 <div class="register">
+
         {% for flashError in app.flashes('verify_email_error') %}
             <div class="alert alert-danger" role="alert">{{ flashError }}</div>
         {% endfor %}
-
-    
+    <div class="col col-6">
+        <img class="" src="img/SVG/background.svg">
+    </div>
+     
+    <div class="col col-6">
         {% if is_granted('ROLE_USER') %}
         <div class="row">
             <div class="registerHero col-6">
@@ -40,9 +44,8 @@
                 {{ form_end(registrationForm) }}
             </div>
         </div>
-        <div>
         
-        </div>
         {% endif %}
     </div>
+</div>
 {% endblock %}

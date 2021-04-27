@@ -1,0 +1,44 @@
+.devis h1{
+	color: black;
+	font-size: 2em;
+	margin-bottom: 40px;
+}
+label:hover{
+	color: #EF6361;
+	font-weight: bolder;
+}
+#devis_typeMaison{
+	width: 30vw;
+	margin: 10px;
+}
+#devis_typeUsage{
+	width: 30vw;
+	margin: 10px;
+}
+#devis_surface{
+	width: 30vw;
+	margin: 10px;
+}
+#devis_budget{
+	width: 30vw;
+	margin: 10px;
+}
+#devis_etages{
+	width: 30vw;
+	margin: 10px;
+}
+#devis_chambres{
+	width: 30vw;
+	margin: 10px;
+}
+#devis_garage{
+	width: 30vw;
+	margin: 10px;
+}
+#devis_exterieur{
+	width: 30vw;
+	margin: 10px;
+}#devis_departement{
+	width: 30vw;
+	margin: 10px;
+}

@@ -1,0 +1,305 @@
+body{
+	font-family: 'Open Sans Condensed', sans-serif;
+	height: auto;
+	width: auto;
+	text-align: center;
+	background-color: #F8F8F8;
+	font-size: 20px;
+}
+h1{
+	font-family: bebas-neue-pro, sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	text-transform: uppercase;
+	color: white;
+	font-size: 60px;
+	padding-top: 80px;
+	text-shadow: 1px 3px 9px rgba(70, 68, 68, 0.562);
+
+}
+
+h2{
+	font-family: bebas-neue-pro, sans-serif;
+	font-size: 40px;
+	font-weight: 500;
+	text-transform: uppercase;
+	color:black;
+	padding-top: 80px;
+}
+h3{
+	font-family: bebas-neue-pro, sans-serif;
+	font-size: 20px;
+	font-style: normal;
+	text-transform: uppercase;
+	margin: 10px;
+}
+p{
+	font-family: 'Open Sans Condensed', sans-serif;
+	color: black;
+	padding-top: 20px;
+	font-size: 1em;
+	margin: 0px;
+}
+
+/* ----------------------- color -------------------- */
+.fraise{
+	background-color: #EF6361;
+}
+.banane
+{
+	background-color: #ffc65d;
+}
+.colorBanane{
+	color:  #ffc65d;
+}
+.colorFraise{
+	color:  #EF6361;
+}
+.colorFraise:hover{
+	color:  white;
+}
+.colorWhite{
+	color: white;
+	text-shadow: 1px 3px 9px rgba(70, 68, 68, 0.562);
+}
+
+/* -------------------- Boutons ------------------- */
+.boutton{
+	color: #EF6361;
+	background-color: white;
+	text-decoration: none;
+	text-align: center;
+	vertical-align: middle;
+	padding: .375rem .75rem;
+	margin-top: 90px;
+	font-size: 20px;
+	border-radius: .50rem;
+	font-family: bebas-neue-pro, sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	text-transform: uppercase;
+	box-shadow: 1px 3px 9px rgba(70, 68, 68, 0.562);
+}
+.boutton:hover{
+	color: white;
+	background-color: #F09C4C;
+}
+.bouttonDark{
+	color: black;
+	background-color: #ffc65d;
+	text-decoration: none;
+	text-align: center;
+	vertical-align: middle;
+	padding: .375rem .75rem;
+	margin: 40px;
+	font-size: 20px;
+	border-radius: .50rem;
+	font-family: bebas-neue-pro, sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	text-transform: uppercase;
+	box-shadow: 1px 3px 9px rgba(70, 68, 68, 0.562);
+}
+.bouttonDark:hover{
+	color: #F09C4C;
+	background-color: white;
+}
+.listBtn{
+	margin: 5px;
+	padding: 3px 5px 3px 5px;
+	background-color: white;
+	color: #EF6361;
+}
+.delete{
+	margin: 5px;
+	padding: 4px 5px 4px 5px;
+	background-color: #EF6361;
+	color: white;
+	font-family: bebas-neue-pro, sans-serif;
+	font-style: normal;
+	text-transform: uppercase;
+	box-shadow: 1px 3px 9px rgba(70, 68, 68, 0.562);}
+.delete:hover{
+	background-color: red;
+	color: white;
+}
+/* ----------------------- Form ---------------- */
+
+label{
+	width: 150px;
+	display: block;
+	float: left;
+	text-align: start;
+}
+input{
+	margin: 10px;
+	width: 300px;
+}
+
+select{
+	
+	display: flex;
+	width: auto;
+	text-align: start;
+
+}
+
+/* ================== Header ======================*/
+
+header{
+	width: 100%;
+	height: auto;
+	background-color: #EF6361;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+}
+
+header a{
+	color: white;
+}
+header a:hover{
+	color: #ffc65d;
+	font-size: 1.2em;
+	
+}
+.navigation{
+	width: 80%;
+	align-items: center;
+	padding: 20px;
+}
+ul 
+{
+	display: flex;
+	justify-content: space-around;
+	margin:0;
+    
+}
+li{
+	list-style: none;
+}
+a{
+	list-style: none;
+	text-decoration: none;
+	color: black;	
+}
+a :hover{
+	color: #EF6361;
+}
+li a {
+
+	text-decoration: none;
+	list-style: none;
+}
+
+nav ul {
+	background-color:#EF6361;
+	padding:0;
+	margin:0;
+	text-decoration:none;
+	list-style: none;
+	}
+nav ul li {
+	
+	line-height:44px;
+	float:left;
+	background-color:#EF6361;
+	}
+nav ul li a {
+	color:#FFF;;
+	font-size:1em;
+	
+	}
+li a:hover {
+	
+	font-size:1em;
+	}
+nav ul li ul { 
+
+	display:none;
+	font-size:1em;
+	
+} 
+nav ul li:hover ul {
+	text-align: left; 
+	padding: 5px;
+	z-index:99999;
+	display:list-item !important;
+	position:absolute;
+}
+nav ul li:hover ul li {
+	float:none;
+
+}
+/* ======================= tableau ================== */
+
+
+.listH1{
+	padding:40px;
+}
+.listDevis{
+	width: 100%;
+	height: auto;
+	
+	
+}
+.formList{
+	display: flex;
+	justify-content: center;
+}
+.formListChild{
+	width: 90%;
+}
+
+.listDevis h1{
+	color: black;
+	text-shadow: none;
+	margin-bottom: 50px;
+}
+
+.tableReduc{
+	font-size: 0.8em;
+}
+
+th{
+	color: black;
+}
+td{
+
+	
+	background-color: white;
+}
+tr{
+	text-align: center;
+	vertical-align: middle;
+}
+
+.listDown{
+	margin: 40px;
+}
+/* ===================== Footer ===================== */
+
+footer{
+	font-size: small;
+	height: 25%;
+	min-height: 70px;
+	background: white;
+	position: relative;
+	padding: 20px 0px;
+	display: flex;
+	justify-content: center;
+}
+.footerNav{
+	width:80%;
+}
+.footerListLeft{
+	display: block;
+	text-align: left;
+	font-size: small;
+}
+.footerListRight{
+	display: block;
+	font-size: small;
+	text-align: right;
+}

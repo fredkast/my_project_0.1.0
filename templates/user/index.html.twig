@@ -1,65 +1,73 @@
 {% extends "buldi.html.twig" %}
-
+   {% block stylesheets %} <link rel="styleSheet" href="{{asset('css/devis_style.css')}}" type="text/css" />{% endblock %}
 {% block body %}
 
 <!DOCTYPE html>
 
 <title>User index</title>
-    <h1>Liste des utilisateurs</h1>
-
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Email</th>
-                <th>Roles</th>
-                <th>Mot de passe</th>
-                {# <th>Nom d'utilisateur</th> #}
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>Adresse</th>
-                <th>Telephone</th>
-                <th>Email</th>
-                 <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for user in users %}
-            <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.email }}</td>
-                {# <td>{{ user.roles ? user.roles|json_encode : '' }}</td> #}
-                <td>
-                    {% for role in user.roles %}
-                            {% if role == "ROLE_USER" %}
-                                Utilisateur
-                            {% elseif role == "ROLE_CLIENT" %}
-                                Client
-                            {% elseif role == "ROLE_ADMIN" %}
-                                Administrateur
-                            {% endif %}
-                        {% endfor %}
-                </td>
-                <td>{{ user.password }}</td>
-                {# <td>{{ user.userName }}</td> #}
-                <td>{{ user.nom }}</td>
-                <td>{{ user.prenom }}</td>
-                <td>{{ user.adresse }}</td>
-                <td>{{ user.telephone }}</td>
-                <td>{{ user.email }}</td>
-                <td>
-                    <a class="btn btn-primary" href="{{ path('user_show', {'id': user.id}) }}">Afficher</a>
-                    <a class="btn btn-warning" href="{{ path('user_edit', {'id': user.id}) }}">Modifier</a>
-                    {{ include('user/_delete_form.html.twig') }}
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">Aucuns utilisateurs</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a class="btn btn-success" href="{{ path('user_new') }}">Ajouter un utilisateur</a>
+<div class="listDevis">
+     <div class="banane">
+        <h1 class="listH1">Liste <strong>des utilisateurs</strong></h1>
+    </div>
+    
+    <div class="formList">
+        <div class="formListChild">
+            <table class="table table-hover tableReduc">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Email</th>
+                        <th>Roles</th>
+                        <th>Mot de passe</th>
+                        {# <th>Nom d'utilisateur</th> #}
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>Adresse</th>
+                        <th>Telephone</th>
+                        <th>Email</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.email }}</td>
+                        {# <td>{{ user.roles ? user.roles|json_encode : '' }}</td> #}
+                        <td>
+                            {% for role in user.roles %}
+                                    {% if role == "ROLE_USER" %}
+                                        Utilisateur
+                                    {% elseif role == "ROLE_CLIENT" %}
+                                        Client
+                                    {% elseif role == "ROLE_ADMIN" %}
+                                        Administrateur
+                                    {% endif %}
+                                {% endfor %}
+                        </td>
+                        <td>{{ user.password }}</td>
+                        {# <td>{{ user.userName }}</td> #}
+                        <td>{{ user.nom }}</td>
+                        <td>{{ user.prenom }}</td>
+                        <td>{{ user.adresse }}</td>
+                        <td>{{ user.telephone }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>
+                            {# <a class="btn boutton listBtn" href="{{ path('user_show', {'id': user.id}) }}">Afficher</a> #}
+                            <a class="btn boutton listBtn" href="{{ path('user_edit', {'id': user.id}) }}">Modifier</a>
+                            {{ include('user/_delete_form.html.twig') }}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="6">Aucuns utilisateurs</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="listDown">
+        <a class="bouttonDark" href="{{ path('user_new') }}">Ajouter un utilisateur</a>
+    </div>
 {% endblock %}

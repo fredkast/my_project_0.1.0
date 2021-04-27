@@ -1,0 +1,46 @@
+.espace_pro{
+	background-color: #F8F8F8;
+}
+.espace_pro_main{
+	background-color: #ffc65d;
+	background-image: url("../img/BackgroundHero.jpg");
+	background-size: cover;
+	text-align: center;
+	padding-bottom: 30px;
+	height: 80vh;
+}
+.espace_pro p{
+	color: white;
+	margin-bottom: 30px;
+	text-shadow: 0.1px 0.1px 0.1px rgb(58, 57, 57);;
+}
+.espace_pro h2{
+	padding: 40px;
+	color: black;
+}
+
+.espace_pro_banner{
+	height: 20vh;
+	width: auto;
+	background-color: white;
+}
+.espace_pro_banner_left{
+	padding:0;
+	opacity: 0.4;
+}
+.espace_pro_banner_right{
+	
+	padding:0;
+}
+
+.espace_pro_banner_svg{
+	width: 80%;
+	margin: 50px;
+	display: flex;
+	justify-content: space-around;
+	
+}
+.particulier{
+	width: 100%;
+	height: auto;
+}

@@ -94,6 +94,7 @@ class RegistrationFormType extends AbstractType
             ])
             ->add("RGPD", CheckboxType::class, [
                 'label'=>"J'accepte les conditions d'utilisation",
+                'label_attr'=>['id'=>'rgpd'],
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([

@@ -1,0 +1,28 @@
+#login_page{
+	height: 80vh;
+	background-color: #ffc65d;
+	
+}
+#login_page h2{
+	margin-bottom: 40px;
+	padding-top: 40px;
+}
+.form_login{
+	margin: 20px;
+}
+.login_page_left{
+	height: auto;
+	
+	background-image: url(../img/Kazba\ vendre\ mon\ terrain.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position-x: left;
+	opacity: 0.4;
+}
+
+.login_rememberme{
+    display: block;
+}
+.boutton{
+    margin-bottom: 20px;
+}

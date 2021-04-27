@@ -1,5 +1,6 @@
 {% extends "buldi.html.twig" %}
 
+   {% block stylesheets %} <link rel="styleSheet" href="{{asset('css/devis_style.css')}}" type="text/css" />{% endblock %}
 
 {% block body %}
 {% if is_granted('ROLE_ADMIN') %}

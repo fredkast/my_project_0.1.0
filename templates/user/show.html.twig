@@ -3,66 +3,75 @@
 <!DOCTYPE html>
 
 <title>User</title>
-    <h1>Bienvenu {{ user.prenom}}</h1>
-    <h2>Ici vous pouvez modifier vos infromations professionnels</h2>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th> Nom</th>
-                <td>{{ user.nom}}</td>
-            </tr>
-            <tr>
-                <th> Prénom</th>
-                <td>{{ user.prenom}}</td>
-            </tr>
-            <tr>
-                <th> Adresse</th>
-                <td>{{ user.adresse}}</td>
-            </tr>
-            <tr>
-                <th> Telephone</th>
-                <td>{{ user.telephone}}</td>
-            </tr>
-            <tr>
-            {% if is_granted('ROLE_ADMIN') %}
-            <tr>
-                <th> Numero du client</th>
-                <td>{{ user.id }}</td>
-            </tr>
-            {% else %}
-            <th>Mon numero client</th>
-                <td>{{ user.id }}</td>
-            {% endif %}
-                
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ user.email }}</td>
-            </tr>
-            <tr>
-                <th>Vous etes un </th>
-                <td class="red">
-                {% if is_granted('ROLE_ADMIN') %}
-                ADMIN
-                {% elseif is_granted('ROLE_CLIENT') %}
-                PROFESSIONNEL
-                {% else %}
-                PARTICULIER
-                {% endif %}
-                </td>
-                
-            </tr>
-            
-        </tbody>
-    </table>
+    
+    
+    <div class="listDevis">
+        <div class="banane">
+            <h1 class="listH1">Bienvenu {{ user.prenom}}</h1>
+            <h2>Ici vous pouvez modifier vos infromations professionnels</h2>
+        </div>
+        
+        <div class="formList">
+            <div class="formListChild">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th> Nom</th>
+                            <td>{{ user.nom}}</td>
+                        </tr>
+                        <tr>
+                            <th> Prénom</th>
+                            <td>{{ user.prenom}}</td>
+                        </tr>
+                        <tr>
+                            <th> Adresse</th>
+                            <td>{{ user.adresse}}</td>
+                        </tr>
+                        <tr>
+                            <th> Telephone</th>
+                            <td>{{ user.telephone}}</td>
+                        </tr>
+                        <tr>
+                        {% if is_granted('ROLE_ADMIN') %}
+                        <tr>
+                            <th> Numero du client</th>
+                            <td>{{ user.id }}</td>
+                        </tr>
+                        {% else %}
+                        <th>Mon numero client</th>
+                            <td>{{ user.id }}</td>
+                        {% endif %}
+                            
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td>{{ user.email }}</td>
+                        </tr>
+                        <tr>
+                            <th>Vous etes un </th>
+                            <td class="red">
+                            {% if is_granted('ROLE_ADMIN') %}
+                            ADMIN
+                            {% elseif is_granted('ROLE_CLIENT') %}
+                            PROFESSIONNEL
+                            {% else %}
+                            PARTICULIER
+                            {% endif %}
+                            </td>
+                            
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
     {% if is_granted('ROLE_ADMIN') %}
-    <a class="btn btn-primary" href="{{ path('user_index') }}">Retour aux utilisateurs</a>
+    <a class="btn boutton listBtn" href="{{ path('user_index') }}">Retour aux utilisateurs</a>
     {% else %}
-    <a class="btn btn-primary" href="{{ path('accueil') }}">Retour à l'accueil</a>
+    <a class="btn boutton listBtn" href="{{ path('accueil') }}">Retour à l'accueil</a>
     {% endif %}
 
-    <a class="btn btn-warning" href="{{ path('user_edit', {'id': user.id}) }}">Modifier</a>
+    <a class="btn boutton listBtn" href="{{ path('user_edit', {'id': user.id}) }}">Modifier</a>
     {% if is_granted('ROLE_ADMIN') %}
     {{ include('user/_delete_form.html.twig') }}
     {% endif %}

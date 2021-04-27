@@ -1,0 +1,60 @@
+.container_contact{
+    display: flex;
+    justify-content: center;
+    
+}
+.contact{
+	background-image: url(../img/SVG/Contactpaperplane.svg);
+	background-repeat: no-repeat;
+	background-size: contain;
+	
+	background-position-y: 10vw;
+	background-position-x: 10vw;
+	z-index: 0;
+    width: 80%;
+	display: flex;
+	justify-content: center;
+    text-align: center;
+}
+
+#contact_h1{
+	color: black;
+	text-transform: none;
+	font-size: 1.5em;
+	text-shadow: none;
+
+}
+/* #contact_nom{
+	width: 30vw;
+	margin: 30px;
+}
+#contact_email{
+	width: 30vw;
+	margin: 30px; 
+}*/
+#contact_message{
+	width: 40vw;
+	height: 25vh;
+	margin: 30px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+} 
+#contact_envoyer{
+	color: white;
+	background-color: #EF6361;
+	text-decoration: none;
+	text-align: center;
+	vertical-align: middle;
+	padding: .375rem .75rem;
+	margin-bottom: 50px;
+
+	font-size: 20px;
+	border-radius: .50rem;
+	font-family: bebas-neue-pro, sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	text-transform: uppercase;
+	box-shadow: 1px 3px 9px rgba(70, 68, 68, 0.562);
+	border-color: rgba(255, 255, 255, 0);
+	
+}

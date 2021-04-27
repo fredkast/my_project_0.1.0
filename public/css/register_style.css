@@ -1,0 +1,34 @@
+.register{
+	height: auto;
+	background-color: #ffc65d;
+	display: flex;
+
+
+
+}
+.register h2{
+	padding: 40px;
+	color: black;
+	
+	
+}
+.form_boutton{
+	margin: 10px;
+}
+.registerForm{
+	background-color: #ffc65d;
+	padding: 30px;
+}
+#rgpd{
+	/* margin-left: 200px; */
+	width: 300px;
+	font-weight: bold;
+	font-size: 0.7em;
+	text-align: right;
+	margin-top: 5px;
+	
+}
+#registration_form_RGPD{
+	width: 50px;
+	margin-right: 150px;
+}
