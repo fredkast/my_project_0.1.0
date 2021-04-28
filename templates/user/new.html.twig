@@ -4,9 +4,13 @@
 <!DOCTYPE html>
 
 <title>New User</title>
-    <h1>Ajouter un un utilisateurs</h1>
-
-    {{ include('user/_form.html.twig') }}
-
-    <a href="{{ path('user_index') }}">Retour aux utilisateurs</a>
+    <div class="listDevis">
+        <div class="banane">
+            <h1 class="listH1">Ajouter un un utilisateurs</h1>
+        </div>
+        <div class="formList">
+            {{ include('user/_form.html.twig') }}
+        </div>
+        <a class="bouttonDark" href="{{ path('user_index') }}">Retour aux utilisateurs</a>
+    </div>
 {% endblock %}

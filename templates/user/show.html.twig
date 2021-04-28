@@ -7,49 +7,47 @@
     
     <div class="listDevis">
         <div class="banane">
-            <h1 class="listH1">Bienvenu {{ user.prenom}}</h1>
-            <h2>Ici vous pouvez modifier vos infromations professionnels</h2>
+            <h1 class="listH1"><b>Bienvenu</b> {{ user.prenom}}</h1>
         </div>
-        
         <div class="formList">
-            <div class="formListChild">
+            <div class="formListChildSmall">
                 <table class="table">
                     <tbody>
                         <tr>
-                            <th> Nom</th>
-                            <td>{{ user.nom}}</td>
+                            <th class="AlignLeft"> Nom</th>
+                            <td class="AlignRight">{{ user.nom}}</td>
                         </tr>
                         <tr>
-                            <th> Prénom</th>
-                            <td>{{ user.prenom}}</td>
+                            <th class="AlignLeft"> Prénom</th>
+                            <td class="AlignRight">{{ user.prenom}}</td>
                         </tr>
                         <tr>
-                            <th> Adresse</th>
-                            <td>{{ user.adresse}}</td>
+                            <th class="AlignLeft"> Adresse</th>
+                            <td class="AlignRight">{{ user.adresse}}</td>
                         </tr>
                         <tr>
-                            <th> Telephone</th>
-                            <td>{{ user.telephone}}</td>
+                            <th class="AlignLeft"> Telephone</th>
+                            <td class="AlignRight">{{ user.telephone}}</td>
                         </tr>
                         <tr>
                         {% if is_granted('ROLE_ADMIN') %}
                         <tr>
-                            <th> Numero du client</th>
-                            <td>{{ user.id }}</td>
+                            <th class="AlignLeft"> Numero du client</th>
+                            <td class="AlignRight">{{ user.id }}</td>
                         </tr>
                         {% else %}
-                        <th>Mon numero client</th>
-                            <td>{{ user.id }}</td>
+                        <th class="AlignLeft">Mon numero client</th>
+                            <td class="AlignRight">{{ user.id }}</td>
                         {% endif %}
                             
                         </tr>
                         <tr>
-                            <th>Email</th>
-                            <td>{{ user.email }}</td>
+                            <th class="AlignLeft">Email</th>
+                            <td class="AlignRight">{{ user.email }}</td>
                         </tr>
                         <tr>
-                            <th>Vous etes un </th>
-                            <td class="red">
+                            <th class="AlignLeft">Vous etes un </th>
+                            <td class="red AlignRight">
                             {% if is_granted('ROLE_ADMIN') %}
                             ADMIN
                             {% elseif is_granted('ROLE_CLIENT') %}
@@ -65,14 +63,17 @@
                 </table>
             </div>
         </div>
+    
+    <div>
+           
+            <a class="btn boutton" href="{{ path('user_edit', {'id': user.id}) }}">Modifier mes informations</a>
+            {% if is_granted('ROLE_ADMIN') %}
+            <div>{{ include('user/_delete_form.html.twig') }}</div>
+            {% endif %}
+    </div>
     {% if is_granted('ROLE_ADMIN') %}
-    <a class="btn boutton listBtn" href="{{ path('user_index') }}">Retour aux utilisateurs</a>
+    <a class="btn bouttonDark" href="{{ path('user_index') }}">Retour aux utilisateurs</a>
     {% else %}
-    <a class="btn boutton listBtn" href="{{ path('accueil') }}">Retour à l'accueil</a>
-    {% endif %}
-
-    <a class="btn boutton listBtn" href="{{ path('user_edit', {'id': user.id}) }}">Modifier</a>
-    {% if is_granted('ROLE_ADMIN') %}
-    {{ include('user/_delete_form.html.twig') }}
+    <a class="btn bouttonDark" href="{{ path('accueil') }}">Retour à l'accueil</a>
     {% endif %}
 {% endblock %}

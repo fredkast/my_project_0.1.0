@@ -2,9 +2,6 @@
 	height: auto;
 	background-color: #ffc65d;
 	display: flex;
-
-
-
 }
 .register h2{
 	padding: 40px;
@@ -26,9 +23,12 @@
 	font-size: 0.7em;
 	text-align: right;
 	margin-top: 5px;
-	
+
 }
 #registration_form_RGPD{
 	width: 50px;
 	margin-right: 150px;
+}
+#registration_form_roles{
+	width: 200px;
 }

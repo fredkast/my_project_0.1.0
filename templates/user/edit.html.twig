@@ -1,14 +1,23 @@
 {% extends "buldi.html.twig" %}
-
+{% block title %}Modifier mon profil{% endblock %}
 {% block body %}
 <!DOCTYPE html>
+<div class="listDevis">
+     <div class="banane">
+        <h1 class="listH1">Modifier mon profil</h1>
+    </div>
+    <div class="formList">
+        <div class="">
+        {{ include('user/_form.html.twig', {'button_label': 'Enregistrer les modifications'}) }}
+        </div>
+    </div>
+    <div class="row flex">
+    {% if is_granted('ROLE_ADMIN') %}
+        <div class="col"><a class="btn bouttonDark" href="{{ path('user_index') }}">Retour aux utilisateurs</a></div>
+    {% endif %}
+        <div class="col"><a class="btn bouttonDark" href="{{ path('accueil') }}">Retour à l'accueil</a></div>
+    </div>
 
-<title>Edit User</title>
-    <h1>Modifier mon profil</h1>
-
-    {{ include('user/_form.html.twig', {'button_label': 'Enregistrer les modifications'}) }}
-
-    <a class="btn btn-primary" href="{{ path('user_index') }}">Retour aux utilisateurs</a>
-
-    {{ include('user/_delete_form.html.twig') }}
+    
+</div>
 {% endblock %}

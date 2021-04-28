@@ -41,7 +41,7 @@ class RegistrationFormType extends AbstractType
                 'multiple' => true
             ])
             ->add('nom', TextType::class, [
-                'label'=>"Nom",
+                'label'=>"Votre nom",
                 'constraints'=>[
                     new Length([
                         'min'=>1,
@@ -50,7 +50,7 @@ class RegistrationFormType extends AbstractType
                     ],
             ])
             ->add('prenom', TextType::class, [
-                'label'=>"Prénom",
+                'label'=>"Votre prénom ou le nom de votre l'entreprise",
                 'constraints'=>[
                     new Length([
                         'min'=>1,

@@ -40,7 +40,9 @@ p{
 	font-size: 1em;
 	margin: 0px;
 }
-
+#flex{
+	display: flex;
+}
 /* ----------------------- color -------------------- */
 .fraise{
 	background-color: #EF6361;
@@ -62,7 +64,9 @@ p{
 	color: white;
 	text-shadow: 1px 3px 9px rgba(70, 68, 68, 0.562);
 }
-
+.pomme{
+	color: green;
+}
 /* -------------------- Boutons ------------------- */
 .boutton{
 	color: #EF6361;
@@ -71,7 +75,7 @@ p{
 	text-align: center;
 	vertical-align: middle;
 	padding: .375rem .75rem;
-	margin-top: 90px;
+	margin-top: 40px;
 	font-size: 20px;
 	border-radius: .50rem;
 	font-family: bebas-neue-pro, sans-serif;
@@ -80,6 +84,19 @@ p{
 	text-transform: uppercase;
 	box-shadow: 1px 3px 9px rgba(70, 68, 68, 0.562);
 }
+.bttn-primary{
+	font-family: bebas-neue-pro, sans-serif!important;
+	color: #EF6361!important;
+	background-color: white!important;
+	box-shadow: 1px 3px 9px rgba(70, 68, 68, 0.562)!important;
+	border: none !important;
+}
+.bttn-primary:hover{
+	background-color: white!important;
+	color:#F09C4C !important;
+	opacity: none !important;
+}
+
 .boutton:hover{
 	color: white;
 	background-color: #F09C4C;
@@ -110,6 +127,16 @@ p{
 	background-color: white;
 	color: #EF6361;
 }
+#delete{
+	color: red;
+	background-color: rgba(255, 255, 255, 0);
+	box-shadow: none;
+	border-radius: none;
+	
+}
+#delete:hover{
+	font-size: 0.9em;	
+}
 .delete{
 	margin: 5px;
 	padding: 4px 5px 4px 5px;
@@ -123,26 +150,19 @@ p{
 	background-color: red;
 	color: white;
 }
-/* ----------------------- Form ---------------- */
+.commande{
+	margin: 5px;
+	padding: 4px 5px 4px 5px;
+	background-color: green;
+	color: white;
+	font-family: bebas-neue-pro, sans-serif;
+	font-style: normal;
+	text-transform: uppercase;
+	box-shadow: 1px 3px 9px rgba(70, 68, 68, 0.562);}
 
-label{
-	width: 150px;
-	display: block;
-	float: left;
-	text-align: start;
-}
-input{
-	margin: 10px;
-	width: 300px;
-}
 
-select{
-	
-	display: flex;
-	width: auto;
-	text-align: start;
 
-}
+
 
 /* ================== Header ======================*/
 
@@ -155,7 +175,13 @@ header{
 	justify-content: center;
 
 }
-
+#logo_header{
+	background-image: url("../img/SVG/LogoDark.svg");
+	background-size: auto;
+	background-repeat: no-repeat;
+	height: 15vh;
+	width: 20vh;
+}
 header a{
 	color: white;
 }
@@ -165,15 +191,19 @@ header a:hover{
 	
 }
 .navigation{
-	width: 80%;
+	width: 100%;
 	align-items: center;
-	padding: 20px;
+	padding: 10px;
+	display: flex;
+	justify-content: space-around;
+	
 }
 ul 
 {
 	display: flex;
 	justify-content: space-around;
 	margin:0;
+	margin-left: 50px;
     
 }
 li{
@@ -232,24 +262,61 @@ nav ul li:hover ul li {
 	float:none;
 
 }
-/* ======================= tableau ================== */
+/* ======================= Form ================== */
 
+label{
+	width: 300px;
+	display: block;
+	float: left;
+	text-align: start;
+}
+label:hover{
+	color: #EF6361;
+	font-weight: bolder;
+}
 
+input{
+	
+	margin: 10px 0px 10px 0px;
+	width: 300px;
+	text-align: right;
+}
+
+select{
+	
+	width: 100px;
+	margin: 10px 0px 10px 0px;
+	text-align: right;
+	
+}
+#devis{
+	width: auto;
+	display: block;
+	justify-content: center;
+	text-align: end;
+}
+.listDevis{
+	width: auto;
+	min-height: 80vh;
+	height: auto;
+}
 .listH1{
 	padding:40px;
 }
-.listDevis{
-	width: 100%;
-	height: auto;
-	
-	
-}
+
 .formList{
 	display: flex;
 	justify-content: center;
+	
 }
 .formListChild{
 	width: 90%;
+	justify-content: center;
+}
+.formListChildSmall{
+	width: 50%;
+	margin: 0px 10px 0px 10px;
+	
 }
 
 .listDevis h1{
@@ -257,7 +324,25 @@ nav ul li:hover ul li {
 	text-shadow: none;
 	margin-bottom: 50px;
 }
+#devis_surface{
+	width: 150px;
+}
+#devis_chambres{
+	width: 150px;
+}
+#devis_budget{
+	width: 150px;
+}
+#devis_etages{
+	width: 150px;
+}
 
+/* ----------------------- table ---------------- */
+
+
+.table{
+	text-align: left;
+}
 .tableReduc{
 	font-size: 0.8em;
 }
@@ -265,16 +350,23 @@ nav ul li:hover ul li {
 th{
 	color: black;
 }
-td{
+th:hover{
+	color:#EF6361 ;
+}
+.AlignLeft{
+	text-align: left;
+}
+.AlignRight{
+	text-align: right;
+}
 
-	
+td{
 	background-color: white;
 }
 tr{
 	text-align: center;
 	vertical-align: middle;
 }
-
 .listDown{
 	margin: 40px;
 }
@@ -291,15 +383,33 @@ footer{
 	justify-content: center;
 }
 .footerNav{
-	width:80%;
+	width:90%;
+	justify-content: space-between;
 }
 .footerListLeft{
 	display: block;
 	text-align: left;
 	font-size: small;
+	margin: 0px;
+	padding: 0px;
+}
+.footerListMiddle{
+	display: block;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
 }
 .footerListRight{
 	display: block;
 	font-size: small;
 	text-align: right;
+}
+
+#logo_footer{
+	background-image: url("../img/SVG/LogoWhite.svg");
+	background-size: contain;
+	background-repeat: no-repeat;
+	height: 100%;
+	width: auto;
+	align-items: center;
 }

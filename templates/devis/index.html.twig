@@ -14,7 +14,57 @@
             <div class="formListChild">
                 <table class="table table-hover">
                 <thead>
-                    <tr>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <tr>
+                            <th>Numero du devis </th>
+                            <th>Localisation</th>
+                            <th>Budget</th>
+                            <th>Type de maison </th>
+                            <th>Usage </th>
+                            <th>Surface en m2</th>
+                            <th>Nombre d'étages</th>
+                            <th>Nombre de chambres</th>
+                            <th>Avec garage</th>
+                            <th>Amenagment d'exterieur</th>
+                            <th>Auteur </th>
+                            <th></th>
+                        </tr>    
+                           
+                    {% elseif is_granted('ROLE_CLIENT') %}
+                        <tr>
+                            <th>Numero du devis </th>
+                            <th>Localisation</th>
+                            <th>Budget</th>
+                            {# <th>Type de maison </th> #}
+                            {# <th>Usage </th> #}
+                            <th>Surface en m2</th>
+                            {# <th>Nombre d'étages</th>
+                            <th>Nombre de chambres</th> #}
+                            {# <th>Avec garage</th>
+                            <th>Amenagment d'exterieur</th> #}
+                            <th>Auteur </th>
+                            <th></th>
+                        </tr>
+                            
+                    {% else %}
+                        <tr>
+                            <th>Numero du devis </th>
+                            <th>Localisation</th>
+                            <th>Budget</th>
+                            <th>Type de maison </th>
+                            <th>Usage </th>
+                            <th>Surface en m2</th>
+                            <th>Nombre d'étages</th>
+                            <th>Nombre de chambres</th>
+                            <th>Avec garage</th>
+                            <th>Amenagment d'exterieur</th>                            
+                            <th></th>
+                        </tr>
+
+                    {% endif %}
+
+
+                    {# <tr>
                         <th>Numero du devis </th>
                         <th>Localisation</th>
                         <th>Budget</th>
@@ -31,13 +81,19 @@
                             <th>Auteur </th>
                         {% else %}
                             {# <td>{{ devi.user}}<br>{{ devi.user.prenom}}<br>{{ devi.user.telephone}}<br>{{ devi.user.email}}</td> #}
-                        {% endif %}
+                        {# {% endif %}
                         {# <th>Auteur </th> #}
-                        <th></th>
-                    </tr>
+                        {# <th></th>
+                    </tr> #} 
+
+
+
                 </thead>
                 <tbody>
                 {% for devi in devis %}
+                        
+
+                 {% if is_granted('ROLE_ADMIN') %}
                         <td><strong>{{ devi.id }}</strong></td>
                         <td>{{ devi.departement }}</td>
                         <td>{{ devi.budget }}</td>
@@ -48,35 +104,43 @@
                         <td>{{ devi.chambres }}</td>
                         <td>{{ devi.garage ? 'Oui' : 'Non' }}</td>
                         <td>{{ devi.exterieur ? 'Oui' : 'Non' }}</td>
-                        {% if is_granted('ROLE_ADMIN') %}
-                            
-                            <td>{{ devi.user}}<br>{{ devi.user.prenom}}<br>{{ devi.user.telephone}}<br>{{ devi.user.email}}</td>
-                        {% elseif is_granted('ROLE_CLIENT') %}
-                            <td> <b>Contactez nous pour voir la fiche client de ce devis ! </b></td>
-                        {% else %}
-                            {# <td>{{ devi.user}}<br>{{ devi.user.prenom}}<br>{{ devi.user.telephone}}<br>{{ devi.user.email}}</td> #}
-                        {% endif %}
+                        <td>{{ devi.user}}<br>{{ devi.user.prenom}}<br>{{ devi.user.telephone}}<br>{{ devi.user.email}}</td>
                         <td id="action">
-                            {% if is_granted('ROLE_ADMIN') %}
                                 {# modifier le devis #}
                                 <a class="btn boutton  listBtn" href="{{ path('devis_edit', {'id': devi.id}) }}">Modifier</a> 
-                                {# afficher le devis #}
-                                <a class="btn boutton listBtn" href="{{ path('devis_show', {'id': devi.id}) }}">Afficher</a> 
                                 {# supprimer le devis #}
-                                {{ include('devis/_delete_form.html.twig') }} 
+                                {{ include('devis/_delete_form.html.twig') }} </td>
+                {% elseif is_granted('ROLE_CLIENT') %}
+                        <td><strong>{{ devi.id }}</strong></td>
+                        <td>{{ devi.departement }}</td>
+                        <td>{{ devi.budget }}</td>
+                        <td>{{ devi.surface }}</td>        
+                        <td> <b>Contactez nous pour voir ce contact !</b></td>
+                        <td id="action">
+                            {# afficher le devis #}
+                                <a class="btn boutton listBtn " href="{{ path('devis_show', {'id': devi.id}) }}">En savoir plus</a>
+                            {# ajouter au panier #}
+                                <a class="btn boutton commande" href="{{ path('contact') }}" >Demander la fiche client</a></td>   
+                {% else %}
+                        <td><strong>{{ devi.id }}</strong></td>
+                        <td>{{ devi.departement }}</td>
+                        <td>{{ devi.budget }}</td>
+                        <td>{{ devi.typeMaison }}</td>
+                        <td>{{ devi.typeUsage }}</td>
+                        <td>{{ devi.surface }}</td>
+                        <td>{{ devi.etages }}</td>
+                        <td>{{ devi.chambres }}</td>
+                        <td>{{ devi.garage ? 'Oui' : 'Non' }}</td>
+                        <td>{{ devi.exterieur ? 'Oui' : 'Non' }}</td>
+                        <td id="action">
+                            {# modifier le devis #}
+                                <a class="btn bouttonDark listBtn" href="{{ path('devis_edit', {'id': devi.id}) }}">Modifier ce projet</a>
+                            {# supprimer le devis #}
+                                {{ include('devis/_delete_form.html.twig') }}</td>
+                {% endif %}
 
-                            {% elseif is_granted('ROLE_CLIENT') %}
-                                {# afficher le devis #}
-                                    <a class="btn boutton listBtn " href="{{ path('devis_show', {'id': devi.id}) }}">Afficher</a>
-                                {# ajouter au panier #}
-                                <a class="btn boutton listBtn" href="{{ path('contact') }}" >Demander la fiche client</a>
 
-                            {% else %}
-                                {# modifier le devis #}
-                                    <a class="btn bouttonDark listBtn" href="{{ path('devis_edit', {'id': devi.id}) }}">Modifier</a>
-                                {# supprimer le devis #}
-                                    {{ include('devis/_delete_form.html.twig') }}
-                            {% endif %}
+                        
 
                         
                         </td>

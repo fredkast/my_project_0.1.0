@@ -1,94 +1,110 @@
 {% extends "buldi.html.twig" %}
-
-   {% block stylesheets %} <link rel="styleSheet" href="{{asset('css/devis_style.css')}}" type="text/css" />{% endblock %}
-
+{% block title %}Mon projet{% endblock %}
 {% block body %}
-{% if is_granted('ROLE_ADMIN') %}
-    <h1>Devis</h1>
-{% elseif is_granted('ROLE_CLIENT') %}
-    <h1>Derriere ce devis se cache peut-etre un client potentiel !</h1>
-{% else %}
-    
-    <h1>Vous serez bientot contacté par des professionnels!</h1>
-{% endif %}
-
-    <table class="table">
-        <tbody>
-        <tr>
-            <th>Auteur du devis</th>
+<div class="listDevis">
+    <div class="banane">
             {% if is_granted('ROLE_ADMIN') %}
-                <td>{{ devi.user}} {{ devi.user.prenom }} / <b>Utilisateur n° :</b> {{ devi.user.id }}</td>
+                <h1  class="listH1">Devis n°{{devi.id}}</h1>
             {% elseif is_granted('ROLE_CLIENT') %}
-                <td><b>Concatez nous pour voir la fiche de ce client </td>
+                <h1  class="listH1">Derriere ce devis se cache peut-etre un <b>client potentiel !</b></h1>
             {% else %}
-                <td>{{ devi.user}} {{ devi.user.prenom }}</td>
+                <h1  class="listH1">Vous serez bientôt contacté par des professionnels!</h1>
             {% endif %}
-            </tr>
-            <tr>
-                <th>Référence du devis</th>
-                <td>{{ devi.id }}</td>
-            </tr>
-            <tr>
-                <th>Type de maison</th>
-                <td>{{ devi.typeMaison }}</td>
-            </tr>
-            <tr>
-                <th>Usage</th>
-                <td>{{ devi.typeUsage }}</td>
-            </tr>
-            <tr>
-                <th>Surface en m2</th>
-                <td>{{ devi.surface }}</td>
-            </tr>
-            <tr>
-                <th>Budget</th>
-                <td>{{ devi.budget }}</td>
-            </tr>
-            <tr>
-                <th>Nombre d'étages</th>
-                <td>{{ devi.etages }}</td>
-            </tr>
-            <tr>
-                <th>Nombre de chambres</th>
-                <td>{{ devi.chambres }}</td>
-            </tr>
-            <tr>
-                <th>Garage</th>
-                <td>{{ devi.garage ? 'Oui' : 'Non' }}</td>
-            </tr>
-            <tr>
-                <th>Amenagment d'exterieur</th>
-                <td>{{ devi.exterieur ? 'Oui' : 'Non' }}</td>
-            </tr>
-            <tr>
-                <th>Localisation du chantier (departement)</th>
-                <td>{{ devi.departement}}</td>
-            </tr>
-        </tbody>
-    </table>
-    {% if is_granted('ROLE_USER') %}
-        <h2>Vous pouvez modifier ou supprimer le devis</h2>
-    {% elseif is_granted('ROLE_CLIENT') %}
-        <h2>Ne passez pas a coté de cette orpportunité</h2>
+    </div>
+     <div class="formList">
+            <div class="formListChildSmall">
+       
+
+            {% if is_granted('ROLE_ADMIN') %}
+                <a id="print" class="btn boutton listBtn" href="javascript:window.print()">Imprimer ce projet</a>
+            {% elseif is_granted('ROLE_CLIENT') %}
+                <a id="print" class="btn boutton listBtn" href="javascript:window.print()">Imprimer ce projet</a>
+                <a class="btn boutton commande" href="{{ path('contact') }}">Nous contacter à propos de ce contact</a>
+                
+            {% endif %}
+
+            
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <th class="AlignLeft">Auteur du devis</th>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <td class="AlignRight">{{ devi.user}} {{ devi.user.prenom }} / <b>Utilisateur n° :</b> {{ devi.user.id }}</td>
+                        {% elseif is_granted('ROLE_CLIENT') %}
+                            <td class="AlignRight pomme"><b>Concatez nous pour voir la fiche de ce particulier !</td>
+                        {% else %}
+                            <td class="AlignRight">{{ devi.user}} {{ devi.user.prenom }}</td>
+                        {% endif %}
+                        </tr>
+                        <tr >
+                            <th class="AlignLeft">Référence du devis</th>
+                            <td class="AlignRight">{{ devi.id }}</td>
+                        </tr>
+                        <tr>
+                            <th class="AlignLeft">Type de maison</th>
+                            <td class="AlignRight">{{ devi.typeMaison }}</td>
+                        </tr>
+                        <tr>
+                            <th class="AlignLeft">Usage</th>
+                            <td class="AlignRight">{{ devi.typeUsage }}</td>
+                        </tr>
+                        <tr>
+                            <th class="AlignLeft">Surface en m2</th>
+                            <td class="AlignRight">{{ devi.surface }}</td>
+                        </tr>
+                        <tr>
+                            <th class="AlignLeft">Budget</th>
+                            <td class="AlignRight"><b>{{ devi.budget }}</b></td>
+                        </tr>
+                        <tr>
+                            <th class="AlignLeft">Nombre d'étages</th>
+                            <td class="AlignRight">{{ devi.etages }}</td>
+                        </tr>
+                        <tr>
+                            <th class="AlignLeft">Nombre de chambres</th>
+                            <td class="AlignRight">{{ devi.chambres }}</td>
+                        </tr>
+                        <tr>
+                            <th class="AlignLeft">Garage</th>
+                            <td class="AlignRight">{{ devi.garage ? 'Oui' : 'Non' }}</td>
+                        </tr>
+                        <tr>
+                            <th class="AlignLeft">Amenagment d'exterieur</th>
+                            <td class="AlignRight">{{ devi.exterieur ? 'Oui' : 'Non' }}</td>
+                        </tr>
+                        <tr>
+                            <th class="AlignLeft">Localisation du chantier (departement)</th>
+                           <td class="AlignRight"> <b>{{ devi.departement}}</b></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+</div>
+    {% if is_granted('ROLE_CLIENT') %}
+        <p>Ne passez pas à coté de cette orpportunité !</p>
+    {% elseif is_granted('ROLE_USER') %}
+       <p>Vous pouvez modifier ou supprimer le devis</p>
     {% endif %}
      
     <div class="action">
         {% if is_granted('ROLE_ADMIN') %}
 
-            <a class="btn btn-primary" href="{{ path('devis_index') }}">Retour aux devis</a>
+            <a class="btn bouttonDark" href="{{ path('devis_index') }}">Retour aux projets</a>
 
         {% elseif is_granted('ROLE_CLIENT') %}
-        
-            <a class="btn btn-primary" href="{{ path('devis_index') }}">Retour aux devis</a>
-            <a id="print" class="btn btn-md btn-dark" href="javascript:window.print()">Imprimer mon devis</a>	
-            <a class="btn btn-danger" href="{{ path('contact') }}">Nous contacter a propos de ce client</a>
+            <div>
+                <a class="btn bouttonDark" href="{{ path('devis_index') }}">Retour aux projets</a>
+                
+            </div>	
+            
 
         {% elseif is_granted('ROLE_USER') %}
         
-            <a class="btn btn-primary" href="{{ path('accueil') }}">Quitter et retourner a l'accueil</a>
+            <a class="btn boutton listBtn" href="{{ path('accueil') }}">Quitter et retourner a l'accueil</a>
             {{ include('devis/_delete_form.html.twig') }}
-            <a class="btn btn-warning" href="{{ path('devis_edit', {'id': devi.id}) }}">Modifier</a>
-            <a id="print" class="btn btn-md btn-dark" href="javascript:window.print()">Imprimer</a>	
+            <a class="btn boutton listBtn" href="{{ path('devis_edit', {'id': devi.id}) }}">Modifier</a>
+            <a id="print" class="btn boutton listBtn" href="javascript:window.print()">Imprimer</a>	
 
         {% endif %}
        

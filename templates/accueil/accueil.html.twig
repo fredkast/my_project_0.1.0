@@ -1,6 +1,5 @@
 {% extends "buldi.html.twig" %}
-   {% block stylesheets %} <link rel="styleSheet" href="{{asset('css/accueil_style.css')}}" type="text/css" />{% endblock %}
-
+{% block stylesheets %} <link rel="styleSheet" href="{{asset('css/accueil_style.css')}}" type="text/css" />{% endblock %}
 {% block body %}
 <main class="">
     <div class="hero banane justify-content-center">
@@ -14,11 +13,12 @@
         </div>
         <div>
             {% if is_granted('ROLE_CLIENT')%}
-                <a href="/pro/"><button class="btn boutton">Acceder a l'espace PRO</button></a>
+                <a href="/pro/"><button class="btn boutton bttn-float bttn-md bttn-primary">Acceder a l'espace PRO</button></a>
                 {% elseif is_granted('ROLE_USER') %}
-                <a href="/devis/new"><button class="btn boutton">Réaliser un devis</button></a>
+                <a href="/devis/new"><button class="btn boutton bttn-float bttn-md bttn-primary">Réaliser un devis</button></a>
                 {% else %} 
-                <a href="/register"><button class="btn boutton">Créer un compte</button></a>
+                <a href="/register"><button class="btn boutton bttn-float bttn-md bttn-primary ">Créer un compte</button></a>
+                
             {% endif %}
         </div>
         <div >
@@ -50,7 +50,7 @@
             <img class="paperPlaneBig" src="img/SVG/PaperPlaneBig.svg">
 
         </div>
-        <a href="/devis/new"><button class="btn bouttonDark">Déposer un projet</button></a>   
+        <a href="/devis/new"><button class="btn bouttonDark bttn-float bttn-md bttn-primary">Déposer un projet</button></a>   
     </div>
 
     <div class="banner">
@@ -64,14 +64,14 @@
         </div>
     </div>
     <div id="nosPartenaires" class="row">
-        <div class="col col-lg-6 col-md-12">
-            <img class="" src="img/SVG/maison.svg">
+        <div class="col col-6 nosPartenairesLeft">
+            <img class="nosPartenaires_img" src="img/SVG/maison.svg">
         </div>
-        <div class="col col-lg-6 col-md-12">
+        <div class="col col-6 nosPartenairesRight">
             <h2><strong>Nos partenaires</strong> dans votre région</h2>
-            <hr>
+           
             <p class="">Quelque soit la taille de votre projet nous trouverons un professionnel intéressés !<br>”Vous ne cherchez pas, c’est eux qui viennent à vous !”</p>
-            <a href="/devis/new"><button class="btn bouttonDark">Déposer un projet</button></a>
+            <a href="/devis/new"><button class="btn bouttonDark bttn-float bttn-md bttn-primary">Déposer un projet</button></a>
         </div>   
     </div>
      <div id="vousVendez">
@@ -79,7 +79,7 @@
             <h2>Vous voulez <strong>vendre votre terrain ?</strong></h2>
             <div class="oppacity">
                 <p class="colorWhite">Vous avez un terrain et vous voulez en tirer le maximum sans effort :</p>
-                <a href="/devis/new"><button class="btn boutton">Trouver un acheteur</button></a> 
+                <a href="/devis/new"><button class="btn boutton bttn-float bttn-md bttn-primary">Trouver un acheteur</button></a> 
             </div>  
         </div>
     </div>

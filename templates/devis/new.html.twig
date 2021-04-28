@@ -1,13 +1,55 @@
 {% extends "buldi.html.twig" %}
-   {% block stylesheets %} <link rel="styleSheet" href="{{asset('css/devis_style.css')}}" type="text/css" />{% endblock %}
-
+   {% block stylesheets %} 
+   
+   <link rel="styleSheet" href="{{asset('css/new_style.css')}}" type="text/css" />
+   {% endblock %}
+{% block title %}Nouveau projet{% endblock %}
 {% block body %}
+
 <!DOCTYPE html>
-<div class="devis">
-    <title>New Devis</title>
-    <h1>Parlez-nous de<strong> votre projet</strong></h1>
+<div class="listDevis">
+    <div class="devis">
+        <div class="banane">
 
-    {{ include('devis/_form.html.twig') }}
-
+            <div class="listH1">
+                <h1>Parlez-nous de<strong> votre projet</strong></h1>
+            </div>
+        </div>
+         <div class="formList">
+            {{ include('devis/_form.html.twig') }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="img1 col col-3">
+           
+        </div>
+        <div class="img2 col col-3">
+           
+        </div>
+        <div class="img3 col col-3">
+            
+        </div>
+        <div class="img4 col col-3">
+        
+        </div>
+    </div>
+    <div class="banner row">
+        <div class="col col-3">
+           <h2>Maison moderne</h2>
+        </div>
+        <div class="col col-3">
+           <h2>Maison en bois</h2>
+        </div>
+        <div class="col col-3">
+            <h2>Maison traditionelle</h2>
+        </div>
+        <div class="col col-3">
+            <h2>Maison d'architecte</h2>
+        </div>
+    </div>
+    <div id="bannerPro" class="col-12">
+       
+    </div>
+    <h2>Nos partenaires sont a votre écoute</h2>
 </div>
 {% endblock %}
