@@ -1,50 +1,49 @@
 {% extends "buldi.html.twig" %}
-   {% block stylesheets %} <link rel="styleSheet" href="{{asset('css/espace_pro_style.css')}}" type="text/css" />{% endblock %}
+   {% block stylesheets %} <link rel="styleSheet" href="{{asset('css/Espace_pro_style.css')}}" type="text/css" />{% endblock %}
+{% block title %}Espace pro{% endblock %}
 
 {% block body %}
 <div class="espace_pro_main">
     <h1>L'espace PRO de KAZBA</h1>
     <div class="">
-            {% if is_granted('ROLE_CLIENT') %}
-                <h2>Decouvrez les devis realisés par des particuliers de votre regions</h2>
-                  <p>Vous etes professionnel et vous desirez demarcher les particuliers de votre region mais 
-                    vous n'avez pas le temps neccessaire? </p>
-                <a href="/devis/"><button class="btn boutton">Voir tous les devis</button></a>
-            {% else %}  
-                <h2>Kazba c'est plus de <strong>300 artisans et professionnels</strong> de la construction et de l'habitation</h2>
-                  <p>vous êtes professionnel et vous désirez démarcher les particuliers de votre region mais 
-                    vous n'avez pas le temps nécessaire? </p>
-                <a href="/register/"><button class="btn boutton ">Créer un compte PRO</button></a>
-            
-            {% endif %}
+        {% if is_granted('ROLE_CLIENT') %}
+            <h2>Decouvrez les devis realisés par des particuliers de votre regions</h2>
+                <p>Vous etes professionnel et vous desirez demarcher les particuliers de votre region mais 
+                vous n'avez pas le temps neccessaire? </p>
+            <a href="/devis/"><button class="btn boutton bttn-float bttn-md bttn-primary">Voir tous les devis</button></a>
+        {% else %}  
+            <h2>Kazba c'est plus de <strong>300 artisans et professionnels</strong> de la construction et de l'habitation</h2>
+                <p>vous êtes professionnel et vous désirez démarcher les particuliers de votre region mais 
+                vous n'avez pas le temps nécessaire? </p>
+            <a href="/register/"><button class="btn boutton bttn-float bttn-md bttn-primary ">Créer un compte PRO</button></a>
+        {% endif %}
     </div>
-</div>   
+</div>
 <div id="espace_pro_banner" class="row">
-        {# <div class="col espace_pro_banner_left">
-            <img class="particulier" src="img/particulier.jpg">
-        </div> #}
-        
-            <div class="espace_pro_banner_right_title">
-                
-                <p class="">Quelque soit la taille de votre entreprise nous 
-                    trouverons des projets adaptés !<br>”Vous ne cherchez pas,
-                    c’est eux qui viennent à vous !”</p>
-                    
-                    <h3>Tous les particuliers dans votre région</h3>
+    <div class="espace_pro_banner_svg col">
+            <div>
+                <img src="img/SVG/cercleText1.svg">
             </div>
-            <div class="espace_pro_banner_svg col">
-                <div>
-                    <img src="img/SVG/cercleText1.svg">
-                </div>
-                <div>
-                    <img src="img/SVG/cercleText2.svg">
-                </div>
-                <div>
-                    <img src="img/SVG/cercleText3.svg">
-                </div>
-             </div>
-             <div>
-        
+            <div>
+                <img src="img/SVG/cercleText2.svg">
+            </div>
+            <div>
+                <img src="img/SVG/cercleText3.svg">
+            </div>
+    </div>
+    <div class="espace_pro_banner_top row">
+        <div class="col col-4">
+                <img alt="Nos projets dans votre région" src="img/SVG/letter.svg" id="paperPlane_espacePro">
+        </div>
+        <div class="espace_pro_banner_right_title col col-8">
+            <p class="">Quelque soit la taille de votre entreprise nous 
+                trouverons des projets adaptés !<br>”Vous ne cherchez pas,
+                c’est eux qui viennent à vous !”</p>     
+            <h3>Decouvrez tous les projets dans votre région</h3>
+            <a href="/contact"><button class="btn bouttonDark ">Nous contacter</button></a>
+        </div>
+        </div>
+    <div>
 </div>
 
 

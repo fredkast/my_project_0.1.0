@@ -1,7 +1,7 @@
 {% extends 'buldi.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
-   {% block stylesheets %} <link rel="styleSheet" href="{{asset('css/login_style.css')}}" type="text/css" />{% endblock %}
+{% block title %}Se connecter à KAZBA{% endblock %}
+{% block stylesheets %} <link rel="styleSheet" href="{{asset('css/Login_style.css')}}" type="text/css" />{% endblock %}
 {% block body %}
 <div id="login_page" class="row">
     <div class="login_page_left col-6">
@@ -38,9 +38,7 @@
                         See https://symfony.com/doc/current/security/remember_me.html #}
 
                         <div id="login_rememberme" class="checkbox mb-3">
-                        
-                                <input type="checkbox" name="_remember_me"> Se souvenir de moi
-                            
+                                <input type="checkbox" name="_remember_me" id="remember_me_checkbox"><b> Se souvenir de moi</b>
                         </div>
 
                     </div>

@@ -1,5 +1,8 @@
 {% extends "buldi.html.twig" %}
-{% block stylesheets %} <link rel="styleSheet" href="{{asset('css/accueil_style.css')}}" type="text/css" />{% endblock %}
+{% block stylesheets %} <link rel="styleSheet" href="{{asset('css/Accueil_style.css')}}" type="text/css" />{% endblock %}
+{% block javascripts %} {% endblock %}
+{% block title %}KAZBA - Accueil{% endblock %}
+
 {% block body %}
 <main class="">
     <div class="hero banane justify-content-center">
@@ -12,7 +15,9 @@
             {% endif %}
         </div>
         <div>
-            {% if is_granted('ROLE_CLIENT')%}
+                {% if is_granted('ROLE_ADMIN')%}
+                <h2>Bienvenu dans l'interface de gestion de <b>KAZBA</b></h2>
+                {% elseif is_granted('ROLE_CLIENT') %}
                 <a href="/pro/"><button class="btn boutton bttn-float bttn-md bttn-primary">Acceder a l'espace PRO</button></a>
                 {% elseif is_granted('ROLE_USER') %}
                 <a href="/devis/new"><button class="btn boutton bttn-float bttn-md bttn-primary">Réaliser un devis</button></a>
@@ -32,16 +37,16 @@
         <img class="paperPlaneRight" src="img/SVG/PaperPlaneRight.svg">
         <div class="stepByStep row ">
             <div class="col step1">
-                <img src="img/SVG/etape1.svg" class="stepNumber">
+                <img src="img/SVG/etape1-icone.svg" class="stepNumber">
                 <p>Je dépose <strong>mon projet sur Kazba</strong> en 3 minutes</p>
             </div>
 
             <div class="col step1"> 
-                <img src="img/SVG/etape2.svg" class="stepNumber">
+                <img src="img/SVG/etape2-icone.svg" class="stepNumber">
                 <p>KAZBA présente votre projet à ses <strong>partenaires</strong></p>
             </div>
             <div class="col step1">
-                <img src="img/SVG/etape3.svg" class="stepNumber">
+                <img src="img/SVG/etape3-icone.svg" class="stepNumber">
                 <p>Les professionnels vous contactent pour <strong>préciser votre projet</strong></p>
             </div>
         </div>
@@ -53,7 +58,7 @@
         <a href="/devis/new"><button class="btn bouttonDark bttn-float bttn-md bttn-primary">Déposer un projet</button></a>   
     </div>
 
-    <div class="banner">
+    <div class="banner" id="banner">
         <div class="bannerChild">
                 <h3 class="colorWhite bannerH3">Gratuit</h3>               
                 <img src="img/SVG/free.svg" class="bannerImg">
@@ -78,7 +83,7 @@
         <div class="vousVendezChild">
             <h2>Vous voulez <strong>vendre votre terrain ?</strong></h2>
             <div class="oppacity">
-                <p class="colorWhite">Vous avez un terrain et vous voulez en tirer le maximum sans effort :</p>
+                <p class=>Vous avez un terrain et vous voulez en tirer le maximum sans effort :</p>
                 <a href="/devis/new"><button class="btn boutton bttn-float bttn-md bttn-primary">Trouver un acheteur</button></a> 
             </div>  
         </div>

@@ -106,15 +106,29 @@
 
 #vousVendez{
 	height: 60vh;
+	width: 100%;
+	/* background-image: url(../img/vendre_son_terrain.jpg); */
+	display: block;
+	position: relative;
+	text-align: center;
+}
+#vousVendez::after {
+	content: "";
 	background-image: url(../img/vendre_son_terrain.jpg);
-	opacity: 0.6;
 	background-size: cover;
-	text-align: right;
-}
+	opacity: 0.4;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	z-index: -1;   
+  }
 .vousVendezChild{
-	margin-right: 25%;
-	z-index: 0;
+	padding-top: 40px;
+	z-index: 1;
 }
+
 .oppacity{
 	opacity: 1;
 }
@@ -122,3 +136,4 @@
 	color: #EF6361;
 	
 }
+

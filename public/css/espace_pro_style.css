@@ -18,26 +18,35 @@
 	padding: 40px;
 	color: black;
 }
-
-.espace_pro_banner{
-	height: 20vh;
+#paperPlane_espacePro{
 	width: auto;
-	background-color: white;
+	height: 250px;
+	margin-left: 150px;
+}
+#espace_pro_banner{
+	height: auto;
+	width: auto;
+	background-color: #EF6361;
+}
+.espace_pro_banner_top{
+	margin-top: 40px !important;
+	margin-bottom: 40px !important;
+	background-color: #EF6361;
 }
 .espace_pro_banner_left{
 	padding:0;
 	opacity: 0.4;
 }
 .espace_pro_banner_right{
-	
 	padding:0;
 }
 
 .espace_pro_banner_svg{
 	width: 80%;
-	margin: 50px;
+	padding: 50px;
 	display: flex;
 	justify-content: space-around;
+	background-color: white;
 	
 }
 .particulier{
