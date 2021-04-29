@@ -4,9 +4,9 @@
 {% block stylesheets %} <link rel="styleSheet" href="{{asset('css/Login_style.css')}}" type="text/css" />{% endblock %}
 {% block body %}
 <div id="login_page" class="row">
-    <div class="login_page_left col-6">
+    <div class="login_page_left col-lg-6 col-sm-12">
     </div>
-    <div class="login_page_right col-6">
+    <div class="login_page_right col-lg-6 col-sm-12">
         <form method="post">
             {% if error %}
                 <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>

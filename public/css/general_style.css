@@ -179,6 +179,7 @@ header{
 	background-image: url("../img/SVG/LogoDark.svg");
 	background-size: auto;
 	background-repeat: no-repeat;
+	background-size: contain;
 	height: 15vh;
 	width: 20vh;
 }
@@ -269,7 +270,7 @@ label{
 	width: 300px;
 	display: block;
 	float: left;
-	text-align: start;
+	
 }
 label:hover{
 	color: #EF6361;

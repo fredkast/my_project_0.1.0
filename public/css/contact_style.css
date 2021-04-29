@@ -1,7 +1,12 @@
 .container_contact{
     display: flex;
     justify-content: center;
-    
+    height: 80vh;
+}
+@media screen and (max-width:960px){
+	.container_contact{
+		height: 80vh;
+	}
 }
 .contact{
 	background-image: url(../img/SVG/Contactpaperplane.svg);

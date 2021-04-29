@@ -1,8 +1,14 @@
 #login_page{
 	height: 80vh;
 	background-color: #ffc65d;
-	
 }
+/* @media screen and (max-width:1024px){
+	#login_page{
+		height: 80vh;
+	}
+}
+	 */
+
 #login_page h2{
 	margin-bottom: 40px;
 	padding-top: 40px;
