@@ -43,6 +43,7 @@
                 {{ form_row(registrationForm.adresse) }}
                 {{ form_row(registrationForm.telephone) }}
                 <button type="submit" class="btn boutton form_boutton">Créer mon compte</button>
+                <a href="/mentions_legales" class="bouton">{{ form_row(registrationForm.RGPD) }}</a>
                 {{ form_end(registrationForm) }}
             </div>
         </div>

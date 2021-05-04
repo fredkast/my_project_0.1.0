@@ -64,31 +64,6 @@
 
                     {% endif %}
 
-
-                    {# <tr>
-                        <th>Numero du devis </th>
-                        <th>Localisation</th>
-                        <th>Budget</th>
-                        <th>Type de maison </th>
-                        <th>Usage </th>
-                        <th>Surface en m2</th>
-                        <th>Nombre d'étages</th>
-                        <th>Nombre de chambres</th>
-                        <th>Avec garage</th>
-                        <th>Amenagment d'exterieur</th>
-                        {% if is_granted('ROLE_ADMIN') %}  
-                            <th>Auteur </th>
-                        {% elseif is_granted('ROLE_CLIENT') %}
-                            <th>Auteur </th>
-                        {% else %}
-                            {# <td>{{ devi.user}}<br>{{ devi.user.prenom}}<br>{{ devi.user.telephone}}<br>{{ devi.user.email}}</td> #}
-                        {# {% endif %}
-                        {# <th>Auteur </th> #}
-                        {# <th></th>
-                    </tr> #} 
-
-
-
                 </thead>
                 <tbody>
                 {% for devi in devis %}

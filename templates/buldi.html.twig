@@ -64,8 +64,6 @@
                     </div
             </div>
         </header>
-        
-           
                     {# Message Flash #}
                 {% for message in app.flashes('success') %}
                 <div class="alert alert-success">
@@ -74,9 +72,6 @@
                 {% endfor %}
 
                 {% block body %}{% endblock %}
-          
-        
-        
         <footer>
             <div class="footerNav row">
                 <div class="col col-5 footerListLeft">
